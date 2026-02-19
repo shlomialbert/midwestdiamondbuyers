@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title><!-- TITLE --></title>
+  <meta name="description" content="<!-- META DESCRIPTION -->" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f6f7f8; --bg2:#ffffff;
+      --surface: rgba(0, 0, 0, 0.035);
+      --border: rgba(0, 0, 0, 0.08);
+      --text: rgba(17, 17, 17, 0.92);
+      --muted: rgba(17, 17, 17, 0.65);
+      --muted-2: rgba(17, 17, 17, 0.45);
+      --accent:#c9a65d; --accent-2:#6fd2bf;
+      --shadow: 0 18px 50px rgba(0,0,0,0.12);
+      --shadow-soft: 0 10px 26px rgba(0,0,0,0.08);
+      --radius-xl: 28px;
+      --container: 900px;
+      --ease: cubic-bezier(.16,1,.3,1);
+      --transition: 520ms var(--ease);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(201,166,93,.10), transparent 55%),
+        radial-gradient(900px 520px at 85% 15%, rgba(111,210,191,.08), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      background-attachment: fixed;
+    }
+    .topbar{
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(14px) saturate(160%);
+      background: rgba(246,247,248,.75);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar-inner{
+      width:min(var(--container),92vw);
+      margin:0 auto; padding:16px 0;
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+    }
+    .brand{
+      text-decoration:none; color:inherit;
+      display:flex; flex-direction:column; line-height:1.05;
+    }
+    .brand-name{
+      font-family:'Playfair Display',serif;
+      font-weight:650; letter-spacing:-.01em; font-size:1.1rem;
+    }
+    .brand-sub{
+      font-size:.66rem; letter-spacing:.28em; text-transform:uppercase;
+      color:var(--muted-2); margin-top:4px;
+    }
+    .navlink{
+      text-decoration:none;
+      font-size:.78rem; letter-spacing:.16em; text-transform:uppercase;
+      font-weight:700; color:var(--text); opacity:.78;
+      transition:opacity var(--transition), transform var(--transition);
+    }
+    .navlink:hover{opacity:1;transform:translateY(-1px)}
+    main{ width:min(var(--container),92vw); margin:0 auto; padding:44px 0 80px; }
+    .article{
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background: rgba(0,0,0,0.02);
+      box-shadow: var(--shadow-soft);
+      padding: clamp(18px, 2.6vw, 34px);
+    }
+    .kicker{
+      display:inline-block;
+      font-size:.72rem; letter-spacing:.42em; text-transform:uppercase;
+      color: rgba(201,166,93,.95);
+      margin-bottom: 14px;
+    }
+    h1{
+      font-family:'Playfair Display',serif;
+      font-weight:600;
+      font-size: clamp(2.0rem, 3.4vw, 2.7rem);
+      line-height:1.08;
+      margin:0 0 10px;
+    }
+    .meta{ color: var(--muted-2); letter-spacing: .16em; text-transform: uppercase; font-size: .72rem; margin: 0 0 18px; }
+    h2{ font-family:'Playfair Display',serif; font-weight:600; margin: 22px 0 10px; font-size: 1.35rem; }
+    p, li{ color: var(--muted); font-size: 1.04rem; line-height: 1.7; }
+    ul{ padding-left: 18px; }
+    .callout{
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.65);
+      padding: 14px 16px;
+      margin: 18px 0;
+    }
+    .cta{
+      margin-top: 26px;
+      display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between;
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.10);
+      background: rgba(0,0,0,0.03);
+      color: rgba(17,17,17,0.86);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration:none;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .btn:hover{ transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+    .btn-primary{
+      background: linear-gradient(135deg, rgba(201,166,93,0.95), rgba(111,210,191,0.75));
+      color: rgba(11,12,16,0.92);
+      border-color: rgba(0,0,0,0.10);
+    }
+    .page-footer{
+      width:min(var(--container),92vw);
+      margin: 0 auto 30px;
+      color: var(--muted-2);
+      font-size: .88rem;
+      display:flex; justify-content:space-between; gap: 12px; flex-wrap: wrap;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html" aria-label="Back to Midwest Diamond Buyers">
+        <div class="brand-name">Midwest Diamond Buyers</div>
+        <div class="brand-sub">Blog</div>
+      </a>
+      <a class="navlink" href="blog.html">← All posts</a>
+    </div>
+  </header>
+
+  <main>
+    <article class="article">
+      <!-- KICKER -->
+      <span class="kicker"><!-- CATEGORY --></span>
+
+      <!-- TITLE -->
+      <h1><!-- POST TITLE --></h1>
+
+      <!-- META -->
+      <p class="meta"><!-- EST. READ TIME --> • Updated <span id="date"></span></p>
+
+      <!-- BODY -->
+      <!-- Replace everything below with the post content -->
+      <p>Luxury watch pricing is transparent, but it’s also precise. Small details can move an offer meaningfully. Here’s what drives value in today’s market.</p>
+
+        <h2>1) Reference and configuration</h2>
+        <p>The exact model/reference, dial variant, bracelet type, and production era matter. Two watches that look similar can trade at very different levels.</p>
+
+        <h2>2) Condition and originality</h2>
+        <p>Original parts, clean case lines, and an honest dial matter. Over-polishing can reduce collector appeal. We inspect and explain what we see.</p>
+
+        <h2>3) Box & papers</h2>
+        <p>Not always required, but box/papers can increase liquidity and buyer confidence, especially for premium models.</p>
+
+        <h2>4) Service history</h2>
+        <p>A recent service can help. But “service” isn’t automatically positive if it involved replacement parts that reduce originality. We evaluate case-by-case.</p>
+
+        <div class="callout">
+        <strong>Bring everything you have:</strong> boxes, cards, extra links, receipts. Even if incomplete, it helps.
+        </div>
+
+        <h2>Next step</h2>
+        <p>Submit your watch details for a same-day review and we’ll schedule a private appointment. If you accept our offer, we settle instantly.</p>
+
+
+      <div class="cta">
+        <div style="color: var(--muted); max-width: 58ch;">
+          Ready to sell? Submit details and we’ll contact you the same day to schedule a private office appointment.
+        </div>
+        <a class="btn btn-primary" href="index.html#appointment">Book appointment</a>
+      </div>
+    </article>
+  </main>
+
+  <div class="page-footer">
+    <span>© <span id="year"></span> Midwest Diamond Buyers</span>
+    <span><a href="privacy.html">Privacy</a> • <a href="terms.html">Terms</a></span>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // simple date stamp; you can hardcode later
+    const d = new Date();
+    document.getElementById('date').textContent = d.toLocaleDateString(undefined, {year:'numeric', month:'long', day:'numeric'});
+  </script>
+</body>
+</html>

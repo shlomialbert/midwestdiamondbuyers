@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Blog | Midwest Diamond Buyers</title>
+  <meta name="description" content="Guides for selling diamonds, gold, estate jewelry, and luxury watches in Chicago. Clear answers on pricing, process, and what to bring." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f6f7f8; --bg2:#ffffff;
+      --surface: rgba(0, 0, 0, 0.035);
+      --surface-2: rgba(0, 0, 0, 0.06);
+      --border: rgba(0, 0, 0, 0.08);
+      --text: rgba(17, 17, 17, 0.92);
+      --muted: rgba(17, 17, 17, 0.65);
+      --muted-2: rgba(17, 17, 17, 0.45);
+      --accent:#c9a65d; --accent-2:#6fd2bf;
+      --shadow: 0 18px 50px rgba(0,0,0,0.12);
+      --shadow-soft: 0 10px 26px rgba(0,0,0,0.08);
+      --radius-xl: 28px; --radius-lg: 18px;
+      --container: 1120px;
+      --ease: cubic-bezier(.16,1,.3,1);
+      --transition: 520ms var(--ease);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(201,166,93,.10), transparent 55%),
+        radial-gradient(900px 520px at 85% 15%, rgba(111,210,191,.08), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      background-attachment: fixed;
+    }
+    .topbar{
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(14px) saturate(160%);
+      background: rgba(246,247,248,.75);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar-inner{
+      width:min(var(--container),92vw);
+      margin:0 auto; padding:16px 0;
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+    }
+    .brand{
+      text-decoration:none; color:inherit;
+      display:flex; flex-direction:column; line-height:1.05;
+    }
+    .brand-name{
+      font-family:'Playfair Display',serif;
+      font-weight:650; letter-spacing:-.01em; font-size:1.1rem;
+    }
+    .brand-sub{
+      font-size:.66rem; letter-spacing:.28em; text-transform:uppercase;
+      color:var(--muted-2); margin-top:4px;
+    }
+    .navlink{
+      text-decoration:none;
+      font-size:.78rem; letter-spacing:.16em; text-transform:uppercase;
+      font-weight:700; color:var(--text); opacity:.78;
+      transition:opacity var(--transition), transform var(--transition);
+    }
+    .navlink:hover{opacity:1;transform:translateY(-1px)}
+    main{
+      width:min(var(--container),92vw);
+      margin:0 auto; padding:44px 0 80px;
+    }
+    .hero{
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background: rgba(0,0,0,0.02);
+      box-shadow: var(--shadow-soft);
+      padding: clamp(18px, 2.6vw, 34px);
+    }
+    .kicker{
+      display:inline-block;
+      font-size:.72rem; letter-spacing:.42em; text-transform:uppercase;
+      color: rgba(201,166,93,.95);
+      margin-bottom: 14px;
+    }
+    h1{
+      font-family:'Playfair Display',serif;
+      font-weight:600;
+      font-size: clamp(2.1rem, 3.6vw, 3rem);
+      line-height:1.08;
+      margin:0 0 10px;
+    }
+    .lead{
+      margin:0;
+      max-width: 75ch;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+    .grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .post-card{
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.02);
+      box-shadow: var(--shadow-soft);
+      overflow:hidden;
+      transition: transform var(--transition), box-shadow var(--transition);
+      text-decoration:none;
+      color:inherit;
+      display:flex;
+      flex-direction:column;
+      min-height: 280px;
+    }
+    .post-card:hover{
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .post-media{
+      height: 130px;
+      background:
+        radial-gradient(420px 180px at 20% 30%, rgba(201,166,93,.22), transparent 60%),
+        radial-gradient(420px 180px at 80% 20%, rgba(111,210,191,.18), transparent 62%),
+        linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.01));
+      border-bottom: 1px solid var(--border);
+    }
+    .post-body{ padding: 16px 16px 18px; display:flex; flex-direction:column; gap: 10px; }
+    .post-meta{
+      font-size: .72rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--muted-2);
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .post-title{
+      font-family:'Playfair Display',serif;
+      font-size: 1.25rem;
+      line-height: 1.15;
+      margin: 0;
+    }
+    .post-excerpt{ margin: 0; color: var(--muted); line-height: 1.6; }
+    .post-cta{
+      margin-top:auto;
+      font-size: .78rem; letter-spacing: .16em; text-transform: uppercase;
+      font-weight: 800;
+      color: rgba(201,166,93,.95);
+    }
+    .page-footer{
+      width:min(var(--container),92vw);
+      margin: 0 auto 30px;
+      color: var(--muted-2);
+      font-size: .88rem;
+      display:flex;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 980px){ .grid{ grid-template-columns: 1fr; } }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html" aria-label="Back to Midwest Diamond Buyers">
+        <div class="brand-name">Midwest Diamond Buyers</div>
+        <div class="brand-sub">Blog</div>
+      </a>
+      <a class="navlink" href="index.html">← Back to site</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <span class="kicker">Guides</span>
+      <h1>Clear answers for Chicago sellers</h1>
+      <p class="lead">
+        Short, practical guides on selling diamonds, estate jewelry, luxury watches, and gold — with a transparent look at how offers are determined.
+      </p>
+    </section>
+
+    <section class="grid" aria-label="Blog posts">
+      <a class="post-card" href="blog-what-affects-diamond-offer.html">
+        <div class="post-media" aria-hidden="true"></div>
+        <div class="post-body">
+          <div class="post-meta"><span>Diamonds</span><span>•</span><span>5 min</span></div>
+          <h2 class="post-title">What affects a diamond offer in Chicago?</h2>
+          <p class="post-excerpt">The real drivers of an offer: certification, cut quality, fluorescence, and current demand.</p>
+          <div class="post-cta">Read →</div>
+        </div>
+      </a>
+
+      <a class="post-card" href="blog-how-gold-offers-are-calculated.html">
+        <div class="post-media" aria-hidden="true"></div>
+        <div class="post-body">
+          <div class="post-meta"><span>Gold</span><span>•</span><span>6 min</span></div>
+          <h2 class="post-title">How gold offers are calculated (spot, purity, weight)</h2>
+          <p class="post-excerpt">A simple breakdown of karat, grams vs. ounces, and why two buyers may quote differently.</p>
+          <div class="post-cta">Read →</div>
+        </div>
+      </a>
+
+      <a class="post-card" href="blog-what-to-bring-to-appointment.html">
+        <div class="post-media" aria-hidden="true"></div>
+        <div class="post-body">
+          <div class="post-meta"><span>Process</span><span>•</span><span>4 min</span></div>
+          <h2 class="post-title">What to bring to your evaluation appointment</h2>
+          <p class="post-excerpt">Paperwork, boxes, certificates: what matters and what doesn’t.</p>
+          <div class="post-cta">Read →</div>
+        </div>
+      </a>
+
+      <a class="post-card" href="blog-estate-jewelry-value.html">
+        <div class="post-media" aria-hidden="true"></div>
+        <div class="post-body">
+          <div class="post-meta"><span>Estate Jewelry</span><span>•</span><span>6 min</span></div>
+          <h2 class="post-title">Estate jewelry: value beyond gold weight</h2>
+          <p class="post-excerpt">When design, maker marks, and gemstones change the outcome and when they don’t.</p>
+          <div class="post-cta">Read →</div>
+        </div>
+      </a>
+
+      <a class="post-card" href="blog-selling-rolex-and-luxury-watches.html">
+        <div class="post-media" aria-hidden="true"></div>
+        <div class="post-body">
+          <div class="post-meta"><span>Watches</span><span>•</span><span>7 min</span></div>
+          <h2 class="post-title">Selling Rolex & luxury watches: what impacts offers</h2>
+          <p class="post-excerpt">Reference numbers, service history, box & papers, and why condition grading matters.</p>
+          <div class="post-cta">Read →</div>
+        </div>
+      </a>
+
+      <a class="post-card" href="blog-lab-grown-vs-natural.html">
+        <div class="post-media" aria-hidden="true"></div>
+        <div class="post-body">
+          <div class="post-meta"><span>Diamonds</span><span>•</span><span>5 min</span></div>
+          <h2 class="post-title">Lab Grown vs Natural: what resale really looks like</h2>
+          <p class="post-excerpt">A straightforward explanation of market pricing and why resale behaves differently.</p>
+          <div class="post-cta">Read →</div>
+        </div>
+      </a>
+
+      <a class="post-card" href="blog-private-office-why-it-matters.html">
+        <div class="post-media" aria-hidden="true"></div>
+        <div class="post-body">
+          <div class="post-meta"><span>Trust</span><span>•</span><span>4 min</span></div>
+          <h2 class="post-title">Why a private office matters when selling valuables</h2>
+          <p class="post-excerpt">Privacy, security, and a calmer process: what to expect and how it protects you.</p>
+          <div class="post-cta">Read →</div>
+        </div>
+      </a>
+    </section>
+  </main>
+
+  <div class="page-footer">
+    <span>© <span id="year"></span> Midwest Diamond Buyers</span>
+    <span>Blog</span>
+  </div>
+
+  <script>
+    const y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

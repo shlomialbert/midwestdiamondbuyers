@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Direct Google to the sitemap
+Sitemap: https://www.midwestdiamondbuyers.com/sitemap.xml

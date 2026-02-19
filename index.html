@@ -1,0 +1,4107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Midwest Diamond Buyers | Luxury Estate Purchasing Chicago</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    /* =========================================================
+   Midwest Diamond Buyers — Modern Premium CSS (Full Replace)
+   Keeps your HTML & JS intact. Strong section breaks + clean UI.
+   ========================================================= */
+
+    /* ---------- Design Tokens ---------- */
+    :root {
+      /* Brand */
+      --brand: #0055a2;
+      /* logo + key accents */
+      --gold: #c9a65d;
+      /* premium warm */
+      --mint: #7ee6d1;
+      /* secondary accent */
+
+      /* Text */
+      --ink: #0b0f17;
+      /* primary text on light surfaces */
+      --ink2: rgba(11, 15, 23, 0.78);
+      --ink3: rgba(11, 15, 23, 0.58);
+
+      /* Dark text */
+      --onDark: rgba(255, 255, 255, 0.92);
+      --onDark2: rgba(255, 255, 255, 0.72);
+      --onDark3: rgba(255, 255, 255, 0.54);
+
+      /* Surfaces */
+      --paper: #fbfbf9;
+      --paper2: #f2f4f7;
+      --slate: #111522;
+      --slate2: #0b0f17;
+
+      /* Borders & Shadows */
+      --line: rgba(11, 15, 23, 0.1);
+      --line2: rgba(255, 255, 255, 0.1);
+
+      --shadow: 0 18px 60px rgba(0, 0, 0, 0.18);
+      --shadowSoft: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+      /* Radius */
+      --rXL: 28px;
+      --rLG: 18px;
+      --rMD: 14px;
+
+      /* Layout */
+      --container: 1120px;
+      --nav-h: 108px;
+
+      /* Motion */
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --t: 520ms var(--ease);
+    }
+
+    /* ---------- Reset ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto,
+        Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      background: var(--paper);
+      color: var(--ink);
+      padding-top: var(--nav-h);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a,
+    button {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    ::selection {
+      background: rgba(0, 85, 162, 0.18);
+    }
+
+    /* ---------- Container ---------- */
+    .container {
+      width: min(var(--container), 92vw);
+      margin-inline: auto;
+    }
+
+    /* =========================================================
+    NAV (Fixed, premium, clean)
+    ========================================================= */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(251, 251, 249, 0.82);
+      backdrop-filter: blur(18px) saturate(160%);
+      border-bottom: 1px solid rgba(11, 15, 23, 0.1);
+    }
+
+    .nav-inner {
+      width: min(var(--container), 92vw);
+      margin-inline: auto;
+      padding: 18px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .logo-mark {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+    }
+
+    .logo-main {
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto,
+        Helvetica, Arial, sans-serif;
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--brand);
+      /* REQUIRED */
+    }
+
+    .logo-rule {
+      display: none;
+    }
+
+    .mdb-diamond {
+      color: #0055a2;
+      /* your blue */
+      display: block;
+    }
+
+    /* height adjustment for logo */
+    .mdb-diamond {
+      width: 54px;
+      height: auto;
+      display: block;
+      flex-shrink: 0;
+      color: #0055a2;
+    }
+
+    .mdb-diamond path {
+      vector-effect: non-scaling-stroke;
+    }
+
+
+    /* Phone CTA */
+    .nav-ticker {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg,
+          rgba(0, 85, 162, 0.1),
+          rgba(126, 230, 209, 0.22));
+      border: 1px solid rgba(0, 85, 162, 0.18);
+      color: rgba(11, 15, 23, 0.9);
+      font-weight: 850;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      text-decoration: none;
+      box-shadow: var(--shadowSoft);
+      transition: transform var(--t), filter var(--t), background var(--t);
+    }
+
+    .nav-ticker:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.02);
+    }
+
+    /* Nav links */
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(11, 15, 23, 0.72);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 10px 2px;
+      transition: color var(--t), opacity var(--t), transform var(--t);
+      cursor: pointer;
+    }
+
+    .nav-links a:hover {
+      color: rgba(0, 85, 162, 0.95);
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 860px) {
+      :root {
+        --nav-h: 78px;
+      }
+
+      .nav-inner {
+        padding: 12px 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .logo-main {
+        font-size: 1.1rem;
+      }
+
+      .nav-ticker {
+        font-size: 0.68rem;
+        padding: 10px 12px;
+      }
+    }
+
+    /* =========================================================
+    PAGE ROUTING (unchanged behavior)
+    ========================================================= */
+    .page {
+      display: none;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity var(--t), transform var(--t);
+    }
+
+    .page.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+    FULL-VIEWPORT SECTIONS (no peeking)
+    ========================================================= */
+    #home-view .hero,
+    #home-view .wwb,
+    #home-view section[aria-label="Selling process"],
+    #home-view #why-view,
+    #home-view .reviews-showcase {
+      min-height: calc(100svh - var(--nav-h));
+      display: flex;
+      align-items: center;
+      padding: clamp(80px, 10vh, 140px) 0;
+    }
+
+    #home-view .hero {
+      padding-top: 0;
+      padding-bottom: 100px;
+    }
+
+    /* consistent inner spacing inside each panel */
+    #home-view .hero-inner,
+    #home-view .wwb-inner,
+    #home-view .process-wrap,
+    #home-view .why-panel,
+    #home-view .google-header,
+    #home-view .review-grid,
+    #home-view .section-actions {
+      padding-block: clamp(22px, 4vh, 56px);
+    }
+
+    /* =========================================================
+    SECTION 1: HERO (Banner-like, 62/38 image-to-info)
+    ========================================================= */
+    #home-view .hero {
+      background:
+        radial-gradient(900px 520px at 82% 0%,
+          rgba(201, 166, 93, 0.1),
+          transparent 62%),
+        radial-gradient(900px 520px at 18% 0%,
+          rgba(0, 85, 162, 0.08),
+          transparent 64%);
+    }
+
+
+
+
+    .hero-inner {
+      width: min(var(--container), 92vw);
+      margin-inline: auto;
+      display: grid;
+      /* 38% text / 62% images */
+      grid-template-columns: 0.62fr 1fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    /* Text column */
+    .hero-kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.42em;
+      font-size: 0.72rem;
+      color: rgba(0, 85, 162, 0.8);
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.35rem, 4.3vw, 4.1rem);
+      line-height: 1.03;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin: 10px 0 14px;
+      color: var(--ink);
+    }
+
+    .hero p {
+      font-size: 1.04rem;
+      color: rgba(11, 15, 23, 0.72);
+      max-width: 58ch;
+    }
+
+    /* Buttons */
+    .hero-cta-row {
+      margin-top: 22px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(11, 15, 23, 0.14);
+      background: rgba(255, 255, 255, 0.7);
+      color: rgba(11, 15, 23, 0.92);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform var(--t), background var(--t),
+        border-color var(--t), box-shadow var(--t);
+      box-shadow: var(--shadowSoft);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.92);
+      border-color: rgba(0, 85, 162, 0.22);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg,
+          rgba(0, 85, 162, 0.92),
+          rgba(126, 230, 209, 0.55));
+      color: rgba(255, 255, 255, 0.96);
+      border-color: rgba(0, 85, 162, 0.18);
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg,
+          rgba(0, 85, 162, 1),
+          rgba(126, 230, 209, 0.62));
+    }
+
+    /* Remove the multi-tone edge completely */
+    .btn,
+    .btn:hover,
+    .btn:active,
+    .btn:focus,
+    .btn:focus-visible {
+      border: 0 !important;
+      box-shadow: none !important;
+      outline: none !important;
+    }
+
+    /* Keep your gradient but without any border/shadow outline */
+    .btn-primary,
+    .btn-primary:hover,
+    .btn-primary:active,
+    .btn-primary:focus,
+    .btn-primary:focus-visible {
+      border: 0 !important;
+      box-shadow: none !important;
+    }
+
+
+    /* Media collage (clean, modern) */
+    .hero-media {
+      position: relative;
+      min-height: 440px;
+      border-radius: var(--rXL);
+    }
+
+    .hero-img-main,
+    .hero-img-float {
+      position: absolute;
+      border-radius: var(--rXL);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(11, 15, 23, 0.08);
+    }
+
+    .hero-img-main {
+      inset: 0 0 0 0;
+    }
+
+    .hero-img-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.02) contrast(1.02);
+    }
+
+    .hero-img-float {
+      width: 44%;
+      height: 56%;
+      right: -6%;
+      top: 22%;
+      border-radius: 22px;
+    }
+
+    .hero-img-float img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.05) contrast(1.05);
+    }
+
+    @media (max-width: 980px) {
+      #home-view .hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* centers vertically */
+        align-items: center;
+        /* centers horizontally */
+        padding-top: 40px;
+        /* optional small top padding for mobile */
+        padding-bottom: 80px;
+        /* keeps bottom padding */
+        text-align: center;
+        /* center all text inside hero */
+      }
+
+      .hero-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        width: 90%;
+        /* make it fit smaller screens */
+      }
+
+      .hero h1,
+      .hero p,
+      .hero-cta-row {
+        text-align: center;
+      }
+    }
+
+    /* =========================================================
+    Shared section header styles
+    ========================================================= */
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      padding: 0 0 22px;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 3.2vw, 2.8rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      max-width: 70ch;
+      margin: 0 auto;
+    }
+
+    /* =========================================================
+    SECTION 2: WHAT WE BUY (clear break, modern slate wash)
+    ========================================================= */
+    #home-view .wwb {
+      background: radial-gradient(900px 520px at 20% 18%,
+          rgba(0, 85, 162, 0.1),
+          transparent 62%),
+        radial-gradient(900px 520px at 80% 18%,
+          rgba(201, 166, 93, 0.1),
+          transparent 64%),
+        linear-gradient(180deg, #eef2f7 0%, #e8edf5 100%);
+      border-top: 1px solid rgba(11, 15, 23, 0.08);
+      border-bottom: 1px solid rgba(11, 15, 23, 0.08);
+    }
+
+    .wwb {
+      position: relative;
+    }
+
+    .wwb-inner {
+      position: relative;
+      width: min(var(--container), 92vw);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 26px;
+      align-items: center;
+    }
+
+    /* rail */
+    .wwb-rail {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      overflow: auto;
+      padding: 8px 4px 12px;
+      scroll-snap-type: x proximity;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .wwb-rail::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    .wwb-rail::-webkit-scrollbar-thumb {
+      background: rgba(11, 15, 23, 0.14);
+      border-radius: 999px;
+    }
+
+    /* cards */
+    .wwb-item {
+      flex: 0 0 260px;
+      height: 340px;
+      border-radius: var(--rXL);
+      overflow: hidden;
+      position: relative;
+      background: rgba(255, 255, 255, 0.75);
+      box-shadow: var(--shadowSoft);
+      scroll-snap-align: start;
+      cursor: pointer;
+      transition: transform var(--t), box-shadow var(--t);
+      border: 1px solid rgba(11, 15, 23, 0.08);
+    }
+
+    .wwb-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .wwb-front,
+    .wwb-back {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .wwb-front img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform 900ms var(--ease), opacity var(--t);
+      filter: saturate(1.02) contrast(1.02);
+    }
+
+    .wwb-front::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg,
+          rgba(0, 0, 0, 0.06),
+          rgba(0, 0, 0, 0.72));
+    }
+
+    .wwb-front .wwb-meta {
+      position: relative;
+      padding: 16px 16px 14px;
+    }
+
+    .wwb-front .wwb-n {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .wwb-front .wwb-name {
+      font-family: "Playfair Display", serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      line-height: 1.15;
+      margin-top: 6px;
+      color: rgba(255, 255, 255, 0.94);
+    }
+
+    .wwb-back {
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity var(--t), transform var(--t);
+      padding: 18px;
+      background: radial-gradient(540px 220px at 20% 20%,
+          rgba(0, 85, 162, 0.18),
+          transparent 60%),
+        linear-gradient(180deg,
+          rgba(11, 15, 23, 0.78),
+          rgba(11, 15, 23, 0.86));
+      color: var(--onDark);
+    }
+
+    .wwb-back h4 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .wwb-back p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.98rem;
+      line-height: 1.55;
+    }
+
+    .wwb-back .wwb-cta {
+      margin-top: 12px;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(126, 230, 209, 0.92);
+      font-weight: 900;
+    }
+
+    .wwb-item:hover .wwb-front img {
+      transform: scale(1.07);
+      opacity: 0.22;
+    }
+
+    .wwb-item:hover .wwb-back {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .wwb-copy {
+      padding-left: 80px;
+    }
+
+    .wwb-copy .k {
+      color: rgba(0, 85, 162, 0.82);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      margin-bottom: 10px;
+    }
+
+    .wwb-copy h3 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.8rem, 2.6vw, 2.3rem);
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 10px;
+      color: var(--ink);
+    }
+
+    .wwb-copy p {
+      color: var(--ink2);
+      max-width: 44ch;
+    }
+
+    @media (max-width: 980px) {
+      .wwb-inner {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .wwb-copy {
+        padding-left: 0;
+      }
+
+      .wwb-copy p {
+        color: var(--ink2);
+        max-width: 44ch;
+        margin: 0 auto;
+        /* centers the paragraph block */
+        text-align: center;
+        /* centers the text */
+      }
+
+
+      .wwb-item {
+        flex-basis: 78vw;
+        height: 320px;
+      }
+    }
+
+    /* (keep your “bleed wider” rail effect on home) */
+    #home-view .wwb-rail {
+      margin-left: calc((100vw - min(var(--container), 92vw)) / -2);
+      padding-left: calc((100vw - min(var(--container), 92vw)) / 2 + 16px);
+    }
+
+    /* =========================================================
+    SECTION 3: SELLING PROCESS (strong contrast break)
+    ========================================================= */
+    #home-view section[aria-label="Selling process"] {
+      background: radial-gradient(900px 520px at 18% 18%,
+          rgba(201, 166, 93, 0.12),
+          transparent 62%),
+        radial-gradient(900px 520px at 82% 20%,
+          rgba(0, 85, 162, 0.1),
+          transparent 64%),
+        linear-gradient(180deg, #ffffff 0%, #f6f7fb 100%);
+      border-top: 1px solid rgba(11, 15, 23, 0.08);
+      border-bottom: 1px solid rgba(11, 15, 23, 0.08);
+    }
+
+    .process-wrap {
+      width: min(var(--container), 92vw);
+      margin: 0 auto;
+    }
+
+    .process-grid {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    /* Card */
+    .pstep {
+      border-radius: var(--rXL);
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: var(--shadowSoft);
+      padding: 18px 18px 16px;
+      cursor: pointer;
+      transition: transform var(--t), background var(--t), box-shadow var(--t);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(11, 15, 23, 0.08);
+      min-height: 240px;
+      /* lock height so nothing shifts */
+    }
+
+    .pstep:hover {
+      transform: translateY(-4px);
+      background: linear-gradient(180deg,
+          rgba(0, 85, 162, 0.06),
+          rgba(255, 255, 255, 0.9));
+      box-shadow: var(--shadow);
+    }
+
+    /* Number badge pinned top center */
+    .pstep .idx {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      color: rgba(255, 255, 255, 0.96);
+      background: linear-gradient(135deg,
+          rgba(0, 85, 162, 0.92),
+          rgba(126, 230, 209, 0.58));
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+    }
+
+    /* Title centered vertically (until hover) */
+    .pstep h4 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.12rem;
+      font-weight: 650;
+      line-height: 1.2;
+      margin: 0;
+      color: var(--ink);
+      /* BLACK-ish title */
+      text-align: center;
+      position: absolute;
+      top: 56%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(100% - 36px);
+      transition: opacity 240ms ease, transform 240ms ease;
+    }
+
+    /* Description hidden until hover; lives BELOW badge */
+    .pstep p {
+      color: var(--ink2);
+      /* BLACK-ish paragraph */
+      font-size: 0.95rem;
+      text-align: center;
+
+      position: absolute;
+      top: 74px;
+      /* below badge */
+      left: 50%;
+      width: calc(100% - 36px);
+      transform: translateX(-50%) translateY(6px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 280ms ease, transform 280ms ease;
+      z-index: 2;
+
+      /* keep within fixed area so height never changes */
+      max-height: 9.6em;
+      overflow: auto;
+      padding-right: 6px;
+    }
+
+    /* Hover behavior (no layout shift) */
+    .pstep:hover h4,
+    .pstep:focus-visible h4 {
+      opacity: 0;
+      transform: translate(-50%, -60%);
+    }
+
+    .pstep:hover p,
+    .pstep:focus-visible p {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+    }
+
+    /* make scrollbar subtle on hover text */
+    .pstep p::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .pstep p::-webkit-scrollbar-thumb {
+      background: rgba(11, 15, 23, 0.16);
+      border-radius: 999px;
+    }
+
+    @media (max-width: 980px) {
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* =========================================================
+    SECTION 4: WHY (dark editorial panel for premium contrast)
+    ========================================================= */
+    #home-view #why-view {
+      background: radial-gradient(900px 520px at 22% 18%,
+          rgba(0, 85, 162, 0.22),
+          transparent 60%),
+        radial-gradient(900px 520px at 80% 22%,
+          rgba(201, 166, 93, 0.18),
+          transparent 62%),
+        linear-gradient(180deg, #0f1422 0%, #0b0f17 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .why-panel {
+      width: min(var(--container), 92vw);
+      margin: 0 auto;
+      border-radius: var(--rXL);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(14px) saturate(140%);
+      padding: clamp(18px, 2.8vw, 28px);
+    }
+
+    .why-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 18px;
+    }
+
+    .why-kicker {
+      display: inline-block;
+      font-size: 0.78rem;
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.62);
+    }
+
+    .why-title {
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      font-size: clamp(2.1rem, 3.9vw, 3.1rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: rgba(255, 255, 255, 0.94);
+    }
+
+    .why-title span {
+      display: block;
+      color: rgba(201, 166, 93, 0.92);
+    }
+
+    .why-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding-top: 20px;
+    }
+
+    .why-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 850;
+    }
+
+    .why-right {
+      max-width: 78ch;
+    }
+
+    .why-right p {
+      font-size: 1.02rem;
+      line-height: 1.78;
+      color: rgba(255, 255, 255, 0.78);
+      margin: 0 0 14px;
+    }
+
+    .why-emphasis {
+      margin-top: 6px;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    /* =========================================================
+    SECTION 5: REVIEWS (bright, clean, black text)
+    ========================================================= */
+    #home-view .reviews-showcase {
+      background:
+        radial-gradient(900px 520px at 18% 0%,
+          /* Gold at Top-Left */
+          rgba(201, 166, 93, 0.1),
+          transparent 62%),
+        radial-gradient(900px 520px at 82% 0%,
+          /* Blue at Top-Right */
+          rgba(0, 85, 162, 0.08),
+          transparent 64%),
+        linear-gradient(180deg, #ffffff 0%, #f4f6fb 100%);
+      /* Fades FROM white */
+      margin-top: 0;
+      min-height: calc(100vh - var(--nav-h));
+      height: auto;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      /* ✅ KEY FIX */
+
+      padding: 24px 0 32px;
+    }
+
+    #home-view .reviews-showcase>*+* {
+      margin-top: 20px;
+    }
+
+    /* header */
+    .google-header {
+      text-align: center;
+      margin-bottom: 16px;
+      width: 100%;
+    }
+
+    .google-header h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.2rem;
+      font-weight: 650;
+      color: #000;
+    }
+
+    /* cards */
+    .review-grid {
+      width: min(var(--container), 92vw);
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 12px;
+      padding: 18px 0 10px;
+    }
+
+    .google-card {
+      border-radius: var(--rXL);
+      padding: 22px 22px 20px;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(11, 15, 23, 0.08);
+      box-shadow: var(--shadowSoft);
+      transition: transform var(--t), box-shadow var(--t);
+    }
+
+    .google-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .google-card p {
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.45;
+      margin-top: 10px;
+      color: rgba(0, 0, 0, 0.86);
+    }
+
+    .google-card strong {
+      color: rgba(0, 0, 0, 0.82);
+    }
+
+    .section-actions {
+      width: 100%;
+      display: flex;
+      padding-bottom: 20px;
+      justify-content: center;
+    }
+
+    .review-grid {
+      align-items: stretch;
+    }
+
+    @media (max-width: 980px) {
+      .review-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* =========================================================
+    FLOATING CTA (keep, refined)
+    ========================================================= */
+    .floating-cta {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 1000;
+      border-radius: 999px;
+      padding: 12px 16px;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.96);
+      background: linear-gradient(135deg,
+          rgba(0, 85, 162, 0.92),
+          rgba(126, 230, 209, 0.55));
+      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.28);
+      cursor: pointer;
+      transition: transform var(--t), filter var(--t);
+    }
+
+    .floating-cta:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.03);
+    }
+
+    /* =========================================================
+    FOOTER (dark, premium; follows reviews)
+    ========================================================= */
+    .site-footer {
+      background: linear-gradient(180deg, #07090f 0%, #05070c 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-inner {
+      width: min(var(--container), 92vw);
+      margin: 0 auto;
+      padding: 48px 0 32px;
+      display: grid;
+      grid-template-columns: 0.25fr 1.4fr 1fr 1fr 1fr;
+      gap: 24px;
+    }
+
+    .footer-name {
+      font-family: "Playfair Display", serif;
+      font-size: 1.25rem;
+      font-weight: 750;
+      margin-bottom: 10px;
+      color: var(--onDark);
+    }
+
+    .footer-desc {
+      color: rgba(255, 255, 255, 0.68);
+      max-width: 45ch;
+      margin-bottom: 16px;
+    }
+
+    .footer-title {
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.52);
+      margin-bottom: 14px;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.82);
+      opacity: 0.72;
+      text-decoration: none;
+      transition: opacity var(--t), transform var(--t);
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-link {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.06);
+      transition: transform var(--t), box-shadow var(--t);
+    }
+
+    .social-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .social-link svg {
+      width: 16px;
+      height: 16px;
+      fill: rgba(255, 255, 255, 0.86);
+      opacity: 0.85;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 16px 0;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.52);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    @media (max-width: 900px) {
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* =========================================================
+    OTHER PAGES (Categories / About / Appointment / Contact)
+    Keep clean, consistent system, no clutter.
+    ========================================================= */
+
+    /* ---- Categories panel ---- */
+    #categories-view {
+      background: radial-gradient(900px 520px at 18% 18%,
+          rgba(0, 85, 162, 0.1),
+          transparent 62%),
+        linear-gradient(180deg, #ffffff 0%, #f4f7fb 100%);
+      min-height: calc(100svh - var(--nav-h));
+    }
+
+
+    .grid {
+      width: min(var(--container), 92vw);
+      margin-inline: auto;
+      display: grid;
+      margin-top: -100px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      padding: 20px 0 150px;
+    }
+
+    .card {
+      cursor: pointer;
+      border-radius: var(--rXL);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(11, 15, 23, 0.08);
+      box-shadow: var(--shadowSoft);
+      overflow: hidden;
+      transition: transform var(--t), border-color var(--t),
+        box-shadow var(--t);
+      display: flex;
+      flex-direction: column;
+      height: auto;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 85, 162, 0.18);
+      box-shadow: var(--shadow);
+    }
+
+    .card-image-wrapper {
+      overflow: hidden;
+      background: none;
+    }
+
+    .card-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+    }
+
+    .card-image-wrapper img {
+      width: 100%;
+      height: 400px;
+      /* or whatever height you want */
+      object-fit: cover;
+    }
+
+
+    .card:hover .card-image-wrapper img {
+      transform: scale(1.07);
+    }
+
+    .card-body {
+      padding: 16px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.45rem;
+      font-weight: 650;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+
+    .card p {
+      color: var(--ink2);
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .card-cta {
+      margin-top: auto;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(0, 85, 162, 0.88);
+      font-weight: 900;
+    }
+
+    /* ---- About ---- */
+    #about-view {
+      background: radial-gradient(900px 520px at 80% 18%,
+          rgba(201, 166, 93, 0.1),
+          transparent 62%),
+        linear-gradient(180deg, #ffffff 0%, #f6f8fb 100%);
+      min-height: calc(100svh - var(--nav-h));
+    }
+
+    .about-hero {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 84px 18px 18px;
+      text-align: center;
+    }
+
+    .display-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+
+    .about-lead {
+      max-width: 70ch;
+      margin: 0 auto;
+      color: var(--ink2);
+      font-size: 1.02rem;
+    }
+
+    /**/
+    .about-grid {
+      max-width: 1300px;
+      /* wider than container */
+      margin: 0 auto 50px;
+      display: grid;
+      grid-template-columns: 0.5fr 1.5fr;
+      /* give image slight dominance */
+      gap: 15px;
+      align-items: stretch;
+      /* keep equal height */
+      height: auto;
+    }
+
+    /* Image */
+    .about-image-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* fills cleanly */
+      display: block;
+    }
+
+    /* Text column */
+    .about-content-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      /* vertically center text */
+    }
+
+
+    /**/
+    .about-image-placeholder {
+      border-radius: var(--rXL);
+      overflow: hidden;
+      border: 1px solid rgba(11, 15, 23, 0.1);
+      box-shadow: var(--shadowSoft);
+      min-height: 360px;
+      transition: transform var(--t), box-shadow var(--t),
+        border-color var(--t);
+    }
+
+    .about-image-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 900ms var(--ease);
+    }
+
+    .about-image-placeholder:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: rgba(0, 85, 162, 0.18);
+    }
+
+    .about-image-placeholder:hover img {
+      transform: scale(1.05);
+    }
+
+    .about-content-text {
+      border-radius: var(--rXL);
+      border: 1px solid rgba(11, 15, 23, 0.1);
+      background: rgba(255, 255, 255, 0.88);
+      padding: 22px;
+      box-shadow: var(--shadowSoft);
+    }
+
+    .about-content-text h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.65rem;
+      font-weight: 650;
+      margin-bottom: 10px;
+      color: var(--ink);
+    }
+
+    .about-content-text p {
+      color: var(--ink2);
+      font-size: 1.02rem;
+    }
+
+    .trust-pillars {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .pillar {
+      border-radius: 18px;
+      border: 1px solid rgba(11, 15, 23, 0.1);
+      background: rgba(11, 15, 23, 0.03);
+      padding: 14px 14px 12px;
+      transition: transform var(--t), box-shadow var(--t),
+        border-color var(--t);
+    }
+
+    .pillar:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadowSoft);
+      border-color: rgba(0, 85, 162, 0.18);
+    }
+
+    .pillar h4 {
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(0, 85, 162, 0.88);
+      margin-bottom: 6px;
+      font-weight: 900;
+    }
+
+    .pillar p {
+      font-size: 0.98rem;
+      color: var(--ink2);
+    }
+
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image-placeholder {
+        min-height: 320px;
+      }
+    }
+
+    /* ---- Appointment + Contact (keep forms readable) ---- */
+    #appointment-view,
+    #contact-view {
+      background: radial-gradient(900px 520px at 18% 18%,
+          rgba(0, 85, 162, 0.08),
+          transparent 62%),
+        linear-gradient(180deg, #ffffff 0%, #f5f7fb 100%);
+      min-height: calc(100svh - var(--nav-h));
+    }
+
+    /* split */
+    .contact-split-container {
+      width: min(var(--container), 92vw);
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding: 36px 0 8px;
+      padding-bottom: clamp(48px, 8vh, 96px);
+      /* breathing room below cards */
+    }
+
+    /* left card */
+    .contact-sidebar {
+      border-radius: var(--rXL);
+      padding: 26px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(11, 15, 23, 0.1);
+      box-shadow: var(--shadowSoft);
+      color: var(--ink);
+    }
+
+    .contact-sidebar .section-title {
+      color: var(--ink) !important;
+    }
+
+    .section-title-different {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding-top: 50px;
+      font-family: 'Times New Roman', Times, serif;
+      /* adjust as needed */
+    }
+
+    /* right card */
+    .contact-form-wrapper {
+      border-radius: var(--rXL);
+      padding: 26px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(11, 15, 23, 0.1);
+      box-shadow: var(--shadowSoft);
+      color: var(--ink);
+    }
+
+    /* map */
+    .contact-map {
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(11, 15, 23, 0.1);
+    }
+
+    .contact-map iframe {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border: 0;
+      border-radius: var(--rXL);
+      overflow: hidden;
+      box-shadow: var(--shadowSoft);
+    }
+
+    .contact-map-link {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(0, 85, 162, 0.92);
+      font-weight: 900;
+      text-decoration: none;
+      transition: opacity var(--t), transform var(--t);
+    }
+
+    .contact-map-link:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    /* inputs */
+    .input-group {
+      margin-bottom: 16px;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(11, 15, 23, 0.62);
+      margin-bottom: 8px;
+      font-weight: 800;
+    }
+
+    .input-group input,
+    .input-group select,
+    .input-group textarea {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgba(11, 15, 23, 0.14);
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--ink);
+      padding: 12px 12px;
+      font: inherit;
+      outline: none;
+      transition: border-color var(--t), background var(--t),
+        box-shadow var(--t);
+    }
+
+    .input-group textarea {
+      resize: vertical;
+    }
+
+    .input-group input:focus,
+    .input-group select:focus,
+    .input-group textarea:focus {
+      border-color: rgba(0, 85, 162, 0.35);
+      box-shadow: 0 0 0 4px rgba(0, 85, 162, 0.1);
+    }
+
+    /* responsive split */
+    @media (max-width: 900px) {
+      .contact-split-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      display: none;
+      place-items: center;
+      padding: 18px;
+      background: rgba(0, 0, 0, .55);
+      z-index: 2000;
+    }
+
+    .modal-overlay.is-open {
+      display: grid;
+    }
+
+    .modal-card {
+      width: min(640px, 92vw);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .96);
+      border: 1px solid rgba(11, 15, 23, .12);
+      box-shadow: 0 22px 70px rgba(0, 0, 0, .35);
+      padding: 18px;
+    }
+
+    .modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(11, 15, 23, .08);
+    }
+
+    .modal-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      margin: 0;
+    }
+
+    .modal-close {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(11, 15, 23, .14);
+      background: rgba(255, 255, 255, .7);
+      cursor: pointer;
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .modal-summary {
+      margin: 12px 0 16px;
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(11, 15, 23, .04);
+      border: 1px solid rgba(11, 15, 23, .08);
+      font-size: .95rem;
+    }
+
+
+    /*===========================================================*/
+    /* sell gold popup */
+    /*===========================================================*/
+    /* Popup Overlay */
+    .gold-popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 15, 23, 0.55);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      animation: fadeInOverlay 0.5s ease forwards;
+    }
+
+    @keyframes fadeInOverlay {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Popup Card */
+    .gold-popup {
+      position: relative;
+      width: min(420px, 92vw);
+      padding: 34px 28px 30px;
+      border-radius: 22px;
+      border: 1.5px solid #000000;
+      /* Solid Gold outer frame */
+      /*outline: 1px solid rgba(0, 0, 0, 0.2);  Thin dark inner definition */
+      outline-offset: -8px;
+      /*
+  background: linear-gradient(
+    180deg,
+    rgba(251, 251, 249, 0.95),
+    rgba(245, 245, 242, 0.9)
+  );*/
+
+      background: linear-gradient(180deg,
+          rgba(201, 166, 93, 0.94));
+      border: 1px solid rgba(201, 166, 93, 0.35);
+      box-shadow: 0 30px 80px rgba(11, 15, 23, 0.35);
+
+      text-align: center;
+      animation: popupFadeUp 0.6s ease;
+    }
+
+    .gold-popup {
+      /* ... keep other styles ... */
+      border: 1.5px solid #000000;
+      /* Brand Blue thin outer edge */
+
+      box-shadow:
+        0 0 0 4.5px #000000,
+        0 25px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Eyebrow */
+    .gold-popup-eyebrow {
+      display: inline-block;
+      font-size: 1.3rem;
+      letter-spacing: 0.22em;
+      font-weight: 800;
+      color: var(--brand);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    /* Heading */
+    .gold-popup h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.9rem;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+
+    /* Text */
+    .gold-popup p {
+      font-size: 1.3rem;
+      color: rgba(11, 15, 23, 0.75);
+      margin-bottom: 22px;
+      line-height: 1.6;
+    }
+
+    /* CTA */
+    .gold-popup-cta {
+      display: inline-block;
+      padding: 14px 26px;
+      border-radius: 999px;
+
+      background: linear-gradient(135deg,
+          rgba(0, 85, 162, 0.18),
+          rgba(126, 230, 209, 0.35));
+
+      border: 1px solid rgba(0, 85, 162, 0.35);
+      font-size: 1rem;
+      letter-spacing: 0.18em;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: rgba(11, 15, 23, 0.95);
+
+      transition: transform var(--t), box-shadow var(--t);
+    }
+
+    .gold-popup-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 85, 162, 0.25);
+    }
+
+    /* Close Button */
+    .gold-popup-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      border: none;
+      background: none;
+      font-size: 1.6rem;
+      line-height: 1;
+      cursor: pointer;
+      color: rgba(11, 15, 23, 0.45);
+    }
+
+    .gold-popup-close:hover {
+      color: rgba(11, 15, 23, 0.9);
+    }
+
+    /* Animation */
+    @keyframes popupFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* =========================================================
+    Accessibility / Reduced motion
+    ========================================================= */
+
+
+    /*=======================================================*/
+    /* -------------------- HERO SECTION -------------------- */
+    /* -------------------- MOBILE ADJUSTMENTS -------------------- */
+    @media (max-width: 980px) {
+      #home-view .hero {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        padding-bottom: 80px;
+        text-align: center;
+      }
+
+      .hero-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: 100vw;
+        /* full viewport width */
+        max-width: 100vw;
+        margin: 0;
+        padding: 0 12px;
+        /* small padding to avoid touching edges */
+        align-items: center;
+      }
+
+      /* Heading adjustments */
+      .hero h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.1;
+        /* tighter lines */
+        max-width: 100%;
+        /* full width of container */
+        white-space: normal;
+        /* allow normal wrapping */
+        word-break: normal;
+        text-align: center;
+        margin: 0;
+        padding-bottom: 100px;
+      }
+
+      /* Paragraph adjustments */
+      .hero p {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        line-height: 1.3;
+        max-width: 100%;
+        text-align: center;
+        margin: 0;
+        padding-bottom: 100px;
+      }
+
+      .hero-cta-row {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      #home-view .hero {
+        background-image: url(Necklace.jpeg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 80%;
+      }
+
+      /* Hide images on mobile */
+      .hero-media,
+      .hero-img-main,
+      .hero-img-float {
+        display: none;
+      }
+
+      /* BUTTONS STACKED AND CENTERED */
+      .hero-cta-row {
+        display: flex;
+        /* flex layout */
+        flex-direction: column;
+        /* stack vertically */
+        justify-content: center;
+        /* center vertically if needed */
+        align-items: center;
+        /* center horizontally */
+        gap: 14px;
+        /* space between buttons */
+        width: 100%;
+        /* take full width of parent */
+        margin: 0 auto;
+        /* ensure centering */
+        padding: 0;
+        /* remove any padding */
+        max-width: 300px;
+        /* optional max width */
+      }
+
+      .hero-cta-row .btn {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        padding: 12px 16px;
+        text-align: center;
+        box-sizing: border-box;
+      }
+    }
+
+    /*===================================================*/
+    /* section 2 */
+    /*===================================================*/
+    /*===================================================*/
+    /* section 2 - MOBILE FIXES */
+    /*===================================================*/
+    /* =========================================================
+   FORCE RESET FOR MOBILE (Put this at the VERY BOTTOM of your <style> tag)
+   ========================================================= */
+
+    @media (max-width: 980px) {
+
+      /* 1. Force the Hero to fill the entire screen */
+      #home-view .hero {
+        /* Use svh (Small Viewport Height) to account for mobile browser bars */
+        height: 100svh !important;
+        min-height: 100svh !important;
+        width: 100vw !important;
+
+        /* Center the text and buttons perfectly in the middle of the screen */
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+
+        /* Reset all paddings and margins that might push it out of frame */
+        padding: 0 20px !important;
+        margin: 0 !important;
+
+        /* Ensure the background image covers every corner */
+        background-size: cover !important;
+        background-position: center !important;
+        position: relative !important;
+      }
+
+      /* 2. Remove the large bottom padding on text that pushes content down */
+      .hero h1 {
+        padding-bottom: 50px !important;
+        margin-top: 0 !important;
+        font-size: clamp(2rem, 8vw, 2.8rem) !important;
+      }
+
+      .hero p {
+        padding-bottom: 50px !important;
+        max-width: 90% !important;
+      }
+
+      /* 3. Section 2 should start only after the user scrolls */
+      #home-view .wwb {
+        margin-top: 0 !important;
+        padding: 60px 20px !important;
+        display: block !important;
+        width: 100% !important;
+      }
+
+      /* 4. Fix for the Navbar: Ensure it doesn't overlap your hero text */
+      nav {
+        height: var(--nav-h);
+      }
+
+      /* 1. Fix the "invisible" content caused by 200px padding */
+      #home-view .hero,
+      #home-view .wwb,
+      #home-view section[aria-label="Selling process"],
+      #home-view #why-view,
+      #home-view .reviews-showcase {
+        min-height: auto !important;
+        padding: 60px 20px !important;
+        /* Resets the 200px desktop padding */
+      }
+
+      /* 2. Center Section 2 (What We Buy) and use full width */
+      .wwb-inner {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        text-align: center !important;
+      }
+
+      .wwb-copy {
+        padding-left: 0 !important;
+        /* Removes the 80px desktop push */
+        margin-bottom: 30px;
+        width: 100%;
+      }
+
+      .wwb-copy h3 {
+        width: 100%;
+        margin-inline: auto;
+      }
+
+      /* 3. Make the image rail visible and centered */
+      .wwb-rail {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        /* Prevents hidden images */
+      }
+
+      .wwb-item {
+        flex: 0 0 auto !important;
+        width: 90vw !important;
+        /* Uses most of the screen width */
+        max-width: 400px;
+        margin-bottom: 20px;
+      }
+    }
+
+    /*=======================================================*/
+    /* section 3 */
+    /*=======================================================*/
+    @media (max-width: 980px) {
+
+      /* 1. Allow the card to grow with its content */
+      .pstep {
+        min-height: auto !important;
+        height: auto !important;
+        padding: 30px 20px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 15px !important;
+      }
+
+      /* 2. Move the Badge, Title, and Text into a normal flow (not absolute) */
+      .pstep .idx,
+      .pstep h4,
+      .pstep p {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        opacity: 1 !important;
+        /* Forces visibility */
+        pointer-events: auto !important;
+        text-align: center !important;
+      }
+
+      .pstep .idx {
+        width: 50px !important;
+        height: 50px !important;
+        border-radius: 50% !important;
+      }
+
+      /* 3. Adjust spacing for mobile readability */
+      .pstep h4 {
+        font-size: 1.3rem !important;
+        margin: 10px 0 5px !important;
+      }
+
+      .pstep p {
+        max-height: none !important;
+        /* Allow all text to show */
+        overflow: visible !important;
+        font-size: 1rem !important;
+        line-height: 1.5 !important;
+        color: var(--ink2) !important;
+      }
+
+      /* 4. Disable the hover transitions so they don't glitch on tap */
+      .pstep:hover h4,
+      .pstep:hover p {
+        transform: none !important;
+        opacity: 1 !important;
+      }
+    }
+
+    /* Remove underlines from the CTA pills and navigation links */
+    .why-pill,
+    .nav-links a,
+    .footer-links a,
+    .btn {
+      text-decoration: none !important;
+    }
+
+    /* Ensure the underline doesn't reappear when you hover over them */
+    .why-pill:hover,
+    .nav-links a:hover,
+    .footer-links a:hover {
+      text-decoration: none !important;
+    }
+
+
+    /*====================================================*/
+    /* What we buy page */
+    /*====================================================*/
+    /* MOBILE: Categories (What We Buy) layout */
+    @media (max-width: 768px) {
+
+      /* 1 column stacked instead of side-by-side grid */
+      #categories-view #category-selection .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      /* Center the card content and keep a clean mobile width */
+      #categories-view #category-selection .card {
+        width: 100%;
+        max-width: 520px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      /* Rounded SQUARE image block */
+      #categories-view #category-selection .card-image-wrapper {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        /* square */
+        border-radius: 22px;
+        /* rounded square */
+        overflow: hidden;
+        /* clip image corners */
+        margin: 0 auto 14px;
+        /* space between image and text */
+      }
+
+      #categories-view #category-selection .card-image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Center-align all text under the image */
+      #categories-view #category-selection .card-body {
+        padding: 0 10px 16px;
+        text-align: center;
+      }
+
+      #categories-view #category-selection .card-body h3,
+      #categories-view #category-selection .card-body p,
+      #categories-view #category-selection .card-body .card-cta {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Optional: make CTA look centered and clean */
+      #categories-view #category-selection .card-body .card-cta {
+        display: inline-block;
+        margin-top: 10px;
+      }
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      /* vertical alignment */
+      gap: 12px;
+      /* space between logo and text */
+    }
+
+    .mdb-diamond {
+      color: #0055a2;
+      flex-shrink: 0;
+      /* prevents SVG from squishing */
+    }
+
+    .brand-name {
+      font-family: "Playfair Display", serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #0055a2;
+      /* adjust for dark/light theme */
+      white-space: nowrap;
+    }
+
+    /* Prevent brand + phone from wrapping weirdly in the fixed nav */
+    .brand {
+      min-width: 0;
+      /* critical in flex layouts */
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-name {
+      min-width: 0;
+      font-family: "Playfair Display", serif;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      /* show ... instead of pushing to next line */
+    }
+
+    .brand-name {
+      font-family: "Playfair Display", serif;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    /* Phone link: never break digits across lines */
+    .nav-phone,
+    .nav-ticker {
+      white-space: nowrap;
+      overflow-wrap: normal;
+      word-break: keep-all;
+    }
+
+    /* Default: show full number, hide "Call" */
+    .phone-short {
+      display: none;
+    }
+
+    /* On small screens: hide full number, show "Call" */
+    @media (max-width: 480px) {
+      .phone-full {
+        display: none;
+      }
+
+      .phone-short {
+        display: inline;
+      }
+
+      /* Optional: tighten the pill so it fits cleanly */
+      .nav-ticker {
+        padding: 10px 12px;
+        letter-spacing: 0.12em;
+      }
+
+      /* Optional: slightly reduce brand text so it stays on one row */
+      .brand-name {
+        font-family: "Playfair Display", serif;
+        font-size: 1.15rem;
+      }
+    }
+
+
+    /*====================================================*/
+    /* book appointment */
+    /*====================================================*/
+
+    @media (max-width: 860px) {
+      .contact-split-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* 🔑 centers children */
+        gap: 3rem;
+        padding-inline: 1.2rem;
+        /* breathing room */
+      }
+    }
+
+    @media (max-width: 860px) {
+      .contact-sidebar {
+        width: 100%;
+        max-width: 520px;
+        text-align: center;
+        align-items: center;
+      }
+
+      .contact-sidebar ul {
+        margin-left: 0;
+        padding-left: 0;
+        list-style-position: inside;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .contact-form-wrapper {
+        width: 100%;
+        max-width: 520px;
+        margin-inline: auto;
+        text-align: center;
+      }
+
+      .calendly-inline-widget {
+        margin-inline: auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .calendly-inline-widget {
+        height: 620px;
+      }
+    }
+
+    .contact-form-wrapper {
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+      /* 🔑 stops iframe spill */
+    }
+
+    .calendly-inline-widget,
+    .calendly-inline-widget iframe {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-inline: auto;
+    }
+
+    @media (max-width: 480px) {
+      .calendly-inline-widget {
+        min-width: 0 !important;
+        height: 620px;
+      }
+    }
+
+    .logo-sub {
+      color: white;
+    }
+
+    .nav-ticker-value {
+      color: white;
+    }
+
+    .footer-logo-svg {
+      width: 190px;
+      /* adjust as needed */
+      height: auto;
+      /* preserves proportions */
+    }
+
+    .map-button {
+      display: inline-block;
+      margin-top: 1.8rem;
+      margin-bottom: 1.8rem;
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(11, 15, 23, 0.15);
+
+      color: #000;
+      /* black text */
+      text-decoration: none;
+      font-weight: 600;
+      line-height: 1.4;
+
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .12);
+      transition: all 320ms ease;
+    }
+
+    .map-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 55px rgba(0, 0, 0, .18);
+      background: linear-gradient(135deg,
+          rgba(0, 85, 162, 0.12),
+          rgba(126, 230, 209, 0.25));
+    }
+
+
+    /* PASTE THIS AT THE BOTTOM OF YOUR <style> TAG */
+    #home-view .top-hero-section {
+      background:
+        radial-gradient(900px 520px at 82% 0%,
+          rgba(201, 166, 93, 0.25),
+          transparent 62%),
+
+        radial-gradient(900px 520px at 18% 0%,
+          rgba(0, 85, 162, 0.12),
+          transparent 64%),
+
+        /* YELLOW: Bottom Left (flowing into Sec 2's Top Left) */
+        radial-gradient(900px 520px at 18% 100%,
+          rgba(201, 166, 93, 0.25),
+          transparent 62%),
+
+        /* BLUE: Bottom Right (flowing into Sec 2's Top Right) */
+        radial-gradient(900px 520px at 82% 100%,
+          rgba(0, 85, 162, 0.12),
+          transparent 64%),
+
+        /* FADE: White top -> Light Grey bottom (matches Sec 2 background) */
+        linear-gradient(180deg, #ffffff 0%, #eef2f7 100%);
+
+      /* Ensure full height/width handling */
+      width: 100%;
+      position: relative;
+    }
+
+    #home-view .reviews-showcase {
+      background:
+        radial-gradient(900px 520px at 18% 0%,
+          rgba(201, 166, 93, 0.25),
+          transparent 62%),
+
+        radial-gradient(900px 520px at 82% 0%,
+          rgba(0, 85, 162, 0.12),
+          transparent 64%),
+        
+        radial-gradient(900px 520px at 82% 100%,
+          rgba(201, 166, 93, 0.25),
+          transparent 62%),
+
+        radial-gradient(900px 520px at 18% 100%,
+          rgba(0, 85, 162, 0.12),
+          transparent 64%),
+
+        linear-gradient(180deg, #eef2f7 0%, #ffffff 100%);
+
+      margin-top: 0;
+      min-height: calc(100vh - var(--nav-h));
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 24px 0 32px;
+      border-top: none;
+    }
+
+
+    .butn {
+      display: inline-block;
+      margin-bottom: 1.8rem;
+      padding: 10px;
+      border-radius: 18px;
+      border: 1px solid rgba(11, 15, 23, 0.15);
+
+      color: #000;
+      /* black text */
+      text-decoration: none;
+      font-weight: 600;
+      line-height: 1.4;
+
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .12);
+      transition: all 320ms ease;
+    }
+
+    .butn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 55px rgba(0, 0, 0, .18);
+      background: linear-gradient(135deg,
+          rgba(0, 85, 162, 0.12),
+          rgba(126, 230, 209, 0.25));
+    }/*
+  .butn {
+  display: inline-block;
+  width: auto;
+  text-align: left;
+  padding: 14px 22px;
+  margin-top: 2rem;
+
+  border-radius: var(--rXL);
+  background: rgba(255, 255, 255, 0.08);
+
+  color: rgb(0, 0, 0);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-color: 1px solid black;
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.18),
+    0 2px 4px rgba(0, 0, 0, 0.12);
+
+
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+
+  transition:
+    transform var(--t),
+    background var(--t),
+    border-color var(--t),
+    box-shadow var(--t);
+}
+
+.butn:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg,
+          rgba(0, 85, 162, 0.92),
+          rgba(126, 230, 209, 0.55));
+  box-shadow: var(--shadowSoft);
+}*/
+
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-inner">
+      <div class="logo" aria-label="Midwest Diamond Buyers">
+        <div class="logo-mark">
+          <div onclick="navigateTo('home')" style="cursor: pointer">
+            <div class="brand">
+              <svg class="mdb-diamond" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg"
+                aria-label="Diamond logo">
+                <path d="M20 35 L40 15 H80 L100 35 L60 75 Z" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linejoin="round" stroke-linecap="round" />
+                <path d="M40 15 L60 35 L80 15" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linejoin="round" stroke-linecap="round" />
+              </svg>
+
+              <span class="brand-name">Midwest Diamond Buyers</span>
+            </div>
+
+
+
+            <!--<span class="logo-main">Midwest Diamond Buyers</span>-->
+            <span class="logo-rule"></span>
+          </div>
+
+          <!-- Gold price now under the logo
+          <div class="logo-sub" id="gold-ticker" aria-live="polite">
+            Gold (XAU): <span class="nav-ticker-value">—</span>
+          </div> -->
+        </div>
+      </div>
+
+      <!-- Phone number now in the center -->
+      <a class="nav-ticker nav-phone" href="tel:+17086839833" aria-label="Call Midwest Diamond Buyers">
+        <span class="phone-full">708 683 9833</span>
+        <span class="phone-short">Call</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a onclick="navigateTo('home')">Home</a>
+        <a onclick="navigateTo('about')">About</a>
+        <a href="#selling-process" onclick="goToSellingProcess(event)">Selling Process</a>
+        <a onclick="navigateTo('contact')">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="view-container">
+    <section id="home-view" class="page active;">
+      <!-- Section 1: Hero split (text left, image collage right) -->
+      <div class="top-hero-section">
+        <div class="section-header">
+          <h2 class="section-title section-title-different">
+            <!--<B>Chicago's Most Trusted Jewelry Buyer</B>-->
+          </h2>
+
+          <p
+            style="color: #0055a2; max-width: 600px; margin: 0 auto 4rem; margin-top: 20px; font-family: Playfair Display, serif; font-size: 1.45rem; font-weight: 600; letter-spacing: -0.02rem;">
+            <B>Select your item type to begin a private, secure evaluation with
+              our experts</B>
+          </p>
+        </div>
+
+        <div class="grid">
+          <div class="card" onclick="navigateTo('categories'); openIntake('diamond')">
+            <div class="card-image-wrapper">
+              <img src="diamond image.png" alt="Diamonds" />
+            </div>
+            <div class="card-body">
+              <h3>Diamond</h3>
+              <p>We Purchase Natural Diamonds of all shapes Certified or not.</p>
+              <span class="card-cta">Start Evaluation →</span>
+            </div>
+          </div>
+
+          <div class="card" onclick="navigateTo('categories'); openIntake('watches');">
+            <div class="card-image-wrapper">
+              <img src="Watch.jpg" alt="Luxury Watches" />
+            </div>
+            <div class="card-body">
+              <h3>Watch</h3>
+              <p>Rolex, Omega, Cartier, Patek Philippe & more</p>
+              <span class="card-cta">Start Evaluation →</span>
+            </div>
+          </div>
+
+          <div class="card" onclick="navigateTo('categories'); openIntake('jewelry')">
+            <div class="card-image-wrapper">
+              <img src="Necklace.jpeg" alt="Jewelry" />
+            </div>
+            <div class="card-body">
+              <h3>Jewelry</h3>
+              <p>
+                Gold, Platinum, Silver and exceptional Fine Estate Jewelry.
+              </p>
+              <span class="card-cta">Start Evaluation →</span>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+      <!--
+        <div class="hero">
+        <div class="hero-inner">
+          <div>
+            <h1>Chicago's most trusted Jewelry Buyer</h1>
+            <p>
+              Top rated buyer of Natural Diamonds, Jewelry and
+              Heirloom Fine Estate Pieces with a commitment to absolute transparency.
+            </p>
+
+            <div class="hero-cta-row">
+              <a id="heroTimeCta" class="btn btn-primary" href="tel:+17086839833">Call Now</a>
+
+              <button onclick="goToFreshCategories()" class="btn btn-primary">Begin Evaluation</button>
+
+            </div>
+          </div>
+
+          <div class="hero-media" aria-hidden="true">
+            <div class="hero-img-main">
+              <img src="Title.png" alt="Jewelry" />
+            </div>
+            <div class="hero-img-float">
+              <img src="tools.png" alt="Tools" />
+            </div>-
+          </div>
+        </div>
+      </div>-->
+
+      <!-- Section 2: What we buy (diagonal split + horizontal scroller)
+      <section class="wwb" aria-label="What we buy">
+        <div class="wwb-inner">
+          <div class="wwb-rail" aria-label="What we buy items">
+            <div class="wwb-item" role="button" tabindex="0" onclick="navigateTo('appointment')">
+              <div class="wwb-front">
+                <img src="diamond image.png" alt="Diamonds" />
+                <div class="wwb-meta">
+                  <div class="wwb-name">Diamonds</div>
+                </div>
+              </div>
+              <div class="wwb-back">
+                <h4>Diamonds</h4>
+                <p>We purchase Natural Diamonds of all shapes certified or not.</p>
+                <div class="wwb-cta">Book Appointment</div>
+              </div>
+            </div>
+
+            <div class="wwb-item" role="button" tabindex="0" onclick="navigateTo('appointment')">
+              <div class="wwb-front">
+                <img src="Watch.jpg" alt="Luxury Watches" />
+                <div class="wwb-meta">
+                  <div class="wwb-name">Watches</div>
+                </div>
+              </div>
+              <div class="wwb-back">
+                <h4>Watches</h4>
+                <p>Rolex, Omega, Cartier, Patek Philippe &amp; more</p>
+                <div class="wwb-cta">Book Appointment</div>
+              </div>
+            </div>
+
+            <div class="wwb-item" role="button" tabindex="0" onclick="navigateTo('appointment')">
+              <div class="wwb-front">
+                <img src="jewelry.png" alt="Jewelry" />
+                <div class="wwb-meta">
+                  <div class="wwb-name">Jewelry</div>
+                </div>
+              </div>
+              <div class="wwb-back">
+                <h4>Jewelry</h4>
+                <p>
+                  All types of Jewelry, Gold, Platinum and Silver to exceptional
+                  Estate Jewelry.
+                </p>
+                <div class="wwb-cta">Book Appointment</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wwb-copy">
+            <div class="k">What we buy</div>
+            <h3>Asset categories with real resale demand</h3>
+            <p>
+              Select an item, preview what we buy, then book a private
+              evaluation.
+            </p>
+            <div style="margin-top: 14px">
+              <button class="btn" onclick="navigateTo('categories')">
+                View All Categories
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>-->
+
+
+      <!-- Section 5: Google Reviews (keep layout; new background/colors handled in CSS) -->
+      <section class="reviews-showcase section">
+        <div class="google-header container">
+          <p style="
+                text-transform: uppercase;
+                letter-spacing: 0.2em;
+                font-size: 0.7rem;
+                color: var(--accent);
+                margin-bottom: 1rem;
+              ">
+            Client Experiences
+          </p>
+          <div class="rating">
+            <h3 style="color:rgb(251, 188, 5)">★★★★★</h3>
+          </div>
+          <h3>Google Rating</h3>
+        </div>
+
+        <div class="review-grid">
+          <div class="google-card">
+            <span style="color: rgb(251, 188, 5)">★★★★★</span>
+            <p>
+              "Albert was extremely helpful and honest. He is very kind and cordial and was able to estimate and offer
+              the true value of the piece I was selling. He even offered advice on how to get the best appraisals to
+              sell future pieces. I highly recommend his services. Definitely one of the best dealers in Chicago"
+            </p>
+            <strong style="
+                  display: block;
+                  margin-top: 2rem;
+                  font-size: 0.75rem;
+                  letter-spacing: 0.1em;
+                  text-transform: uppercase;
+                ">Jennifer Lennon</strong>
+          </div>
+          <div class="google-card">
+            <span style="color: rgb(251, 188, 5)">★★★★★</span>
+            <p>
+              "Such a friendly and comfortable experience! Not only did I sell my rings for a price that made me happy,
+              I was educated on diamonds and the purchasing process. Highly recommend!"
+            </p>
+            <strong style="
+                  display: block;
+                  margin-top: 2rem;
+                  font-size: 0.75rem;
+                  letter-spacing: 0.1em;
+                  text-transform: uppercase;
+                ">Adrienne Palmer</strong>
+          </div>
+          <div class="google-card">
+            <span style="color: rgb(251, 188, 5)">★★★★★</span>
+            <p>
+              "Albert was very professional and nice. I found him very fair and again professional. We even chatted
+              about our Army days and he showed me some nice watches to only educate me on them. I was there to sell
+              some jewelry. He paid well. Trust is a hard thing in this kind of business. I found him very honest. He
+              went to so far to take a piece to get it X rayed. The price came out higher than previously spoken about."
+            </p>
+            <strong style="
+                  display: block;
+                  margin-top: 2rem;
+                  font-size: 0.75rem;
+                  letter-spacing: 0.1em;
+                  text-transform: uppercase;
+                ">Nick Swords</strong>
+          </div>
+        </div>
+
+        <div class="section-actions">
+          <a class="btn btn-primary"
+            href="https://www.google.com/search?q=Midwest+Diamond+Buyers+&sca_esv=cbcc352c89b9e229&sxsrf=ANbL-n4kctzxU9FD8Pvgph6KnelD4_RkYA%3A1768413526053&ei=VtlnabH8AqzS2roPh_2TiAo&ved=0ahUKEwix_6TgzYuSAxUsqVYBHYf-BKEQ4dUDCBE&uact=5&oq=Midwest+Diamond+Buyers+&gs_lp=Egxnd3Mtd2l6LXNlcnAiF01pZHdlc3QgRGlhbW9uZCBCdXllcnMgMgQQIxgnMgQQIxgnMgoQIxiABBgnGIoFMg4QLhiABBjHARiOBRivATIGEAAYFhgeMgIQJjIIEAAYgAQYogQyCBAAGIAEGKIEMgUQABjvBUjXHFDPB1iLD3ABeAGQAQCYAX6gAZ0FqgEDNS4yuAEDyAEA-AEBmAIIoALEBcICChAAGLADGNYEGEeYAwCIBgGQBgiSBwM2LjKgB6k-sgcDNS4yuAe_BcIHBTAuMS43yAcdgAgA&sclient=gws-wiz-serp"
+            target="_blank" rel="noopener noreferrer">Read More Reviews</a>
+        </div>
+      </section>
+
+
+      <!-- Section 4: Why Midwest Diamond Buyers (centered) -->
+      <section id="why-view" class="section why-editorial">
+        <div class="why-panel">
+          <div class="why-inner">
+            <div class="why-left">
+              <span class="why-kicker">WHY</span>
+              <h2 class="why-title"><span>Midwest Diamond Buyers</span></h2>
+              <div class="why-pills" aria-label="Highlights">
+                <a href="https://www.google.com/maps/search/?api=1&query=Midwest+Diamond+Buyers+Chicago"
+                  class="why-pill" target="_blank" rel="noopener"
+                  aria-label="Open Midwest Diamond Buyers location in Google Maps">
+                  Location
+                </a>
+
+                <a href="#appointment-view" class="why-pill" onclick="navigateTo('appointment')">Evaluation</a>
+
+                <a href="shipping.html" class="why-pill">Shipping</a>
+              </div>
+            </div>
+
+            <div class="why-right">
+              <p>
+                Midwest Diamond Buyers was created to offer an alternative to
+                the traditional retail experience, one built around
+                discretion, clarity, and real market knowledge.
+              </p>
+              <p>
+                We are not a jewelry store and we are not brokers. We are
+                specialized buyers who focus on natural diamonds, fine
+                jewelry, luxury watches, and precious assets with established
+                resale demand.
+              </p>
+              <p>
+                Every evaluation is conducted privately and professionally,
+                with offers based on current global pricing rather than
+                inflated retail assumptions.
+              </p>
+              <p>
+                Our process is straightforward: we review submissions the same
+                day, meet by appointment in a private office setting, explain
+                value transparently, and settle immediately if you choose to
+                sell.
+              </p>
+              <p class="why-emphasis">
+                No pressure. No public counters. No uncertainty.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Process cards (hover expands; click goes to What We Buy page) -->
+      <section id="selling-process" class="section" aria-label="Selling process">
+        <div class="process-wrap">
+          <div class="section-header">
+            <p style="
+                  text-transform: uppercase;
+                  letter-spacing: 0.22em;
+                  font-size: 0.7rem;
+                  color: rgba(212, 178, 123, 0.95);
+                  margin-bottom: 10px;
+                ">
+              Selling process
+            </p>
+            <h2 class="section-title">What happens after you submit</h2>
+            <p class="section-subtitle">
+              A simple, same-day workflow designed for privacy, clarity, and
+              immediate payment.
+            </p>
+          </div>
+
+          <div class="process-grid" role="list">
+            <div class="pstep" role="listitem" tabindex="0" onclick="goToCategories()">
+              <div class="idx">1</div>
+              <h4>Select your item & share details</h4>
+              <p>Choose what you’re selling and provide key details in the intake form.</p>
+            </div>
+
+
+            <div class="pstep" role="listitem" tabindex="0" onclick="navigateTo('appointment')">
+              <div class="idx">2</div>
+              <h4>Same-day review &amp; appointment call</h4>
+              <p>
+                We review your submission the same day and call to schedule a
+                private appointment.
+              </p>
+            </div>
+
+            <div class="pstep" role="listitem" tabindex="0" onclick="navigateTo('contact')">
+              <div class="idx">3</div>
+              <h4>Private office valuation &amp; offer</h4>
+              <p>
+                Visit our secure office. We evaluate, explain pricing, and
+                confirm the offer with you.
+              </p>
+            </div>
+
+            <div class="pstep" role="listitem" tabindex="0" onclick="navigateTo('categories')">
+              <div class="idx">4</div>
+              <h4>Instant payment</h4>
+              <p>Once we agree, we pay the full amount immediately.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+    </section>
+
+    <section id="categories-view" class="page">
+      <div id="category-selection">
+        <div class="section-header">
+          <h2 class="section-title" style="color: #0055a2">Asset Categories</h2>
+          <p style="color: var(--muted); max-width: 600px; margin: 0 auto 4rem">
+            Select your item type to begin a private, secure evaluation with
+            our experts.
+          </p>
+        </div>
+
+        <div class="grid">
+          <div class="card" onclick="openIntake('diamond')">
+            <div class="card-image-wrapper">
+              <img src="diamond image.png" alt="Diamonds" />
+            </div>
+            <div class="card-body">
+              <h3>Diamonds</h3>
+              <p>We Purchase Natural Diamonds of all shapes Certified or not.</p>
+              <span class="card-cta">Start Evaluation →</span>
+            </div>
+          </div>
+
+          <div class="card" onclick="navigateTo('categories'); openIntake('watches');">
+            <div class="card-image-wrapper">
+              <img src="Watch.jpg" alt="Luxury Watches" />
+            </div>
+            <div class="card-body">
+              <h3>Watches</h3>
+              <p>Rolex, Omega, Cartier, Patek Philippe & more</p>
+              <span class="card-cta">Start Evaluation →</span>
+            </div>
+          </div>
+
+          <div class="card" onclick="openIntake('jewelry')">
+            <div class="card-image-wrapper">
+              <img src="Necklace.jpeg" alt="Jewelry" />
+            </div>
+            <div class="card-body">
+              <h3>Jewelry</h3>
+              <p>
+                All types of Jewelry, Gold, PLatinum and Silver to exceptional Heirloom Fine Estate Jewelry.
+              </p>
+              <span class="card-cta">Start Evaluation →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="intake-form-container" style="display: none; padding: 10rem 10%">
+        <button onclick="navigateTo('home')" class="btn" style="
+          background: none;
+          color: var(--fg);
+          padding: 0;
+          border: none;
+          margin-bottom: 2rem;
+          cursor: pointer;
+        ">
+          ← Back
+        </button>
+
+        <h2 id="form-title" class="section-title">Evaluation</h2>
+        <form id="dynamic-intake">
+          <div id="form-questions"></div>
+          <button type="submit" class="btn" style="margin-top: 3rem">
+            Request Appointment
+          </button>
+        </form>
+      </div>
+      <div class="contact-split-container">
+        <div class="contact-sidebar">
+          <h2 class="section-title" style="color: white">Chicago Office</h2>
+          <p style="margin-bottom: 1.5rem; opacity: 0.7">
+            29 E. Madison Street, Suite 1818<br />Chicago, IL 60602
+          </p>
+
+          <a id="contactActionBtn" class="butn" href="tel:7086839833">
+            <strong>708 683 9833</strong>
+          </a>
+
+
+          <div style="
+                font-size: 0.8rem;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+              ">
+            <p style="margin-bottom: 1rem">Mon — Fri / 10am – 6pm</p>
+            <p>By Appointments Only</p>
+            <div class="contact-map">
+              <iframe title="Midwest Diamond Buyers - Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.5091362606313!2d-87.62936532372939!3d41.881906371241335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2dfdff88a293%3A0x8783308897262a50!2sMidwest%20Diamond%20Buyers!5e0!3m2!1sen!2sus!4v1768590165805!5m2!1sen!2sus">
+              </iframe>
+
+              <a class="contact-map-link"
+                href="https://www.google.com/maps/place/Midwest+Diamond+Buyers/@41.8819064,-87.6293653,17z/data=!3m2!4b1!5s0x880e2ca4ff2c7a67:0x9f0640c253c51c7f!4m6!3m5!1s0x880e2dfdff88a293:0x8783308897262a50!8m2!3d41.8819064!4d-87.6267904!16s%2Fg%2F11ghp0gysy?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank" rel="noopener">
+                Open in Google Maps →
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-wrapper">
+          <h3 style="
+                font-family: 'Playfair Display';
+                font-size: 2rem;
+                margin-bottom: 3rem;
+              ">
+            Inquiry Details
+          </h3>
+          <form id="contactForm">
+            <div class="input-group">
+              <label for="fullName">Full Name</label>
+              <input id="fullName" name="fullName" type="text" autocomplete="name" required />
+            </div>
+            <div class="input-group">
+              <label for="email">Email Address</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="input-group">
+              <label for="phone">Cell Phone Number</label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required />
+            </div>
+            <div class="input-group">
+              <label for="preferredContact">Preferred Mode of Contact</label>
+              <select id="preferredContact" name="preferredContact" required>
+                <option value="" selected disabled></option>
+                <option value="text">Text message</option>
+                <option value="phone">Phone call</option>
+                <option value="email">Email</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="assets">Description of Assets</label>
+              <textarea id="assets" name="assets" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn">Submit Inquiry</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="about-view" class="page">
+      <div class="about-hero">
+        <h2 class="display-title" style="margin-top: -60px;">Midwest Diamond Buyers</h2>
+        <p class="about-lead">
+          A private firm dedicated to the professional
+          acquisition of natural diamonds and antique gold assets.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-image-placeholder">
+          <img src="entry.jpeg" alt="Chicago Skyline" />
+        </div>
+
+        <div class="about-content-text">
+          <h3>Our Heritage</h3>
+          <p>
+            Based in the heart of Chicago's Loop, Midwest Diamond Buyers was built on a simple belief, trust is earned
+            through transparency.
+            We are not a traditional retail store, we are specialized buyers with deep expertise in <strong> diamonds
+            </strong> and <strong> vintage jewelry</strong>. Each piece valued not just for its weight, but for its
+            history and craftsmanship.
+          </p>
+
+          <div class="trust-pillars">
+            <div class="pillar">
+              <h4>Ethical Excellence</h4>
+              <p>
+                We focus exclusively on natural diamonds. No lab-grown, no
+                synthetics, only stones formed by the earth over millions of years, valued for their rarity, integrity
+                and enduring worth.
+              </p>
+            </div>
+            <div class="pillar">
+              <h4>Secure Privacy</h4>
+              <p>
+                Every Appointment takes place in a secure, private office setting.
+                Your time, comfort and confidentiality are treated with the same care as your valuables. <br> <strong>
+                  Counters, No Crowd, No Pressure</strong>
+              </p>
+            </div>
+            <div class="pillar">
+              <h4>Direct Liquidity</h4>
+              <p>
+                By operating with low overhead and high expertise, we are able to present immediate competitive offers
+                aligned with real time global market pricing. <br> <strong>No Intermediaries, No Delays</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-split-container">
+        <div class="contact-sidebar">
+          <h2 class="section-title" style="color: white">Chicago Office</h2>
+          <p style="margin-bottom: 1.5rem; opacity: 0.7">
+            29 E. Madison Street, Suite 1818<br />Chicago, IL 60602
+          </p>
+          <a id="contactActionBtn" class="butn" href="tel:7086839833">
+            <strong>708 683 9833</strong>
+          </a>
+
+          <div style="
+                font-size: 0.8rem;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+              ">
+            <p style="margin-bottom: 1rem">Mon — Fri / 10am – 6pm</p>
+            <p>By Appointments Only</p>
+            <div class="contact-map">
+              <iframe title="Midwest Diamond Buyers - Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.5091362606313!2d-87.62936532372939!3d41.881906371241335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2dfdff88a293%3A0x8783308897262a50!2sMidwest%20Diamond%20Buyers!5e0!3m2!1sen!2sus!4v1768590165805!5m2!1sen!2sus">
+              </iframe>
+
+              <a class="contact-map-link"
+                href="https://www.google.com/maps/place/Midwest+Diamond+Buyers/@41.8819064,-87.6293653,17z/data=!3m2!4b1!5s0x880e2ca4ff2c7a67:0x9f0640c253c51c7f!4m6!3m5!1s0x880e2dfdff88a293:0x8783308897262a50!8m2!3d41.8819064!4d-87.6267904!16s%2Fg%2F11ghp0gysy?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank" rel="noopener">
+                Open in Google Maps →
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-wrapper">
+          <h3 style="
+                font-family: 'Playfair Display';
+                font-size: 2rem;
+                margin-bottom: 3rem;
+              ">
+            Inquiry Details
+          </h3>
+          <form id="contactForm">
+            <div class="input-group">
+              <label for="fullName">Full Name</label>
+              <input id="fullName" name="fullName" type="text" autocomplete="name" required />
+            </div>
+            <div class="input-group">
+              <label for="email">Email Address</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="input-group">
+              <label for="phone">Cell Phone Number</label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required />
+            </div>
+            <div class="input-group">
+              <label for="preferredContact">Preferred Mode of Contact</label>
+              <select id="preferredContact" name="preferredContact" required>
+                <option value="" selected disabled></option>
+                <option value="text">Text message</option>
+                <option value="phone">Phone call</option>
+                <option value="email">Email</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="assets">Description of Assets</label>
+              <textarea id="assets" name="assets" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn">Submit Inquiry</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="appointment-view" class="page">
+      <div class="contact-split-container">
+        <div class="contact-sidebar">
+          <h2 class="section-title" style="color: white">
+            Book an Appointment
+          </h2>
+
+          <p class="appointment-location-text">
+            Appointments are held in a private office suite in the Chicago Loop.
+          </p>
+
+          <a class="map-button"
+            href="https://www.google.com/maps/place/Midwest+Diamond+Buyers/@41.8819064,-87.6293653,17z/data=!3m2!4b1!5s0x880e2ca4ff2c7a67:0x9f0640c253c51c7f!4m6!3m5!1s0x880e2dfdff88a293:0x8783308897262a50!8m2!3d41.8819064!4d-87.6267904!16s%2Fg%2F11ghp0gysy?entry=ttu"
+            target="_blank" rel="noopener noreferrer">
+            <strong>29 E. Madison Street, Suite 1818, Chicago, IL 60602</strong>
+          </a>
+
+
+          <div style="
+                font-size: 0.8rem;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+              ">
+            <p style="margin-bottom: 1rem">Mon — Fri / 10am – 6pm</p>
+            <p style="margin-bottom: 1rem">By Appointment Only</p>
+            <p style="margin-bottom: 1rem">
+              <strong>Call Us: 708 683 9833</strong>
+            </p>
+          </div>
+
+          <div style="margin-top: 2.8rem; opacity: 0.8">
+            <p style="margin-bottom: 0.8rem">
+              <strong>What to bring (if available):</strong>
+            </p>
+            <ul style="margin-left: 1.2rem; line-height: 1.9">
+              <li>Any certificates (GIA / EGL)</li>
+              <li>Receipts or appraisals</li>
+              <li>Original box/papers (watches/jewelry)</li>
+            </ul>
+            <div class="contact-map">
+              <iframe title="Midwest Diamond Buyers - Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.5091362606313!2d-87.62936532372939!3d41.881906371241335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2dfdff88a293%3A0x8783308897262a50!2sMidwest%20Diamond%20Buyers!5e0!3m2!1sen!2sus!4v1768590165805!5m2!1sen!2sus">
+              </iframe>
+
+              <a class="contact-map-link"
+                href="https://www.google.com/maps/place/Midwest+Diamond+Buyers/@41.8819064,-87.6293653,17z/data=!3m2!4b1!5s0x880e2ca4ff2c7a67:0x9f0640c253c51c7f!4m6!3m5!1s0x880e2dfdff88a293:0x8783308897262a50!8m2!3d41.8819064!4d-87.6267904!16s%2Fg%2F11ghp0gysy?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank" rel="noopener">
+                Open in Google Maps →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+          <h3 style="
+                font-family: 'Playfair Display';
+                font-size: 2rem;
+                margin-bottom: 1.25rem;
+              ">
+            Choose a Time
+          </h3>
+          <p style="color: var(--muted); margin-bottom: 2rem">
+            Select an available slot. You’ll receive confirmation immediately.
+          </p>
+
+          <!-- Calendly inline widget -->
+          <div class="calendly-inline-widget"
+            data-url="https://calendly.com/mwdiamondbuyers-info/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0f1118&text_color=ffffff&primary_color=d4b27b"
+            style="min-width: 320px; height: 700px"></div>
+        </div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      </div>
+    </section>
+
+    <section id="contact-view" class="page">
+      <div class="contact-split-container">
+        <div class="contact-sidebar">
+          <h2 class="section-title" style="color: white">Chicago Office</h2>
+          <p style="margin-bottom: 1.5rem; opacity: 0.7">
+            29 E. Madison Street, Suite 1818<br />Chicago, IL 60602
+          </p>
+          <a id="contactActionBtn" class="butn" href="tel:7086839833">
+            <strong>708 683 9833</strong>
+          </a>
+
+          <div style="
+                font-size: 0.8rem;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+              ">
+            <p style="margin-bottom: 1rem">Mon — Fri / 10am – 6pm</p>
+            <p>By Appointments Only</p>
+            <div class="contact-map">
+              <iframe title="Midwest Diamond Buyers - Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.5091362606313!2d-87.62936532372939!3d41.881906371241335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2dfdff88a293%3A0x8783308897262a50!2sMidwest%20Diamond%20Buyers!5e0!3m2!1sen!2sus!4v1768590165805!5m2!1sen!2sus">
+              </iframe>
+
+              <a class="contact-map-link"
+                href="https://www.google.com/maps/place/Midwest+Diamond+Buyers/@41.8819064,-87.6293653,17z/data=!3m2!4b1!5s0x880e2ca4ff2c7a67:0x9f0640c253c51c7f!4m6!3m5!1s0x880e2dfdff88a293:0x8783308897262a50!8m2!3d41.8819064!4d-87.6267904!16s%2Fg%2F11ghp0gysy?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank" rel="noopener">
+                Open in Google Maps →
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-wrapper">
+          <h3 style="
+                font-family: 'Playfair Display';
+                font-size: 2rem;
+                margin-bottom: 3rem;
+              ">
+            Inquiry Details
+          </h3>
+          <form id="contactForm">
+            <div class="input-group">
+              <label for="fullName">Full Name</label>
+              <input id="fullName" name="fullName" type="text" autocomplete="name" required />
+            </div>
+            <div class="input-group">
+              <label for="email">Email Address</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="input-group">
+              <label for="phone">Cell Phone Number</label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required />
+            </div>
+            <div class="input-group">
+              <label for="preferredContact">Preferred Mode of Contact</label>
+              <select id="preferredContact" name="preferredContact" required>
+                <option value="" selected disabled></option>
+                <option value="text">Text message</option>
+                <option value="phone">Phone call</option>
+                <option value="email">Email</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="assets">Description of Assets</label>
+              <textarea id="assets" name="assets" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn">Submit Inquiry</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="floating-cta" onclick="navigateTo('appointment')">
+    Book Appointment
+  </div>
+  <!-- Intake → Contact Popup Modal -->
+  <div id="contactModal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <h3 id="modalTitle" class="modal-title">Request Appointment</h3>
+        <button type="button" class="modal-close" onclick="closeContactModal()">×</button>
+      </div>
+
+      <!-- Optional: show a quick summary so user knows we kept their item details -->
+      <div id="intakeSummary" class="modal-summary"></div>
+
+      <!-- Contact details form (same fields as contact page) -->
+      <form id="modalContactForm">
+        <div class="input-group">
+          <label for="modalFullName">Full Name</label>
+          <input id="modalFullName" name="fullName" type="text" autocomplete="name" required />
+        </div>
+
+        <div class="input-group">
+          <label for="modalEmail">Email Address</label>
+          <input id="modalEmail" name="email" type="email" autocomplete="email" required />
+        </div>
+
+        <div class="input-group">
+          <label for="modalPhone">Cell Phone Number</label>
+          <input id="modalPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required />
+        </div>
+
+        <div class="input-group">
+          <label for="modalPreferredContact">Preferred Mode of Contact</label>
+          <select id="modalPreferredContact" name="preferredContact" required>
+            <option value="" selected disabled></option>
+            <option value="text">Text message</option>
+            <option value="phone">Phone call</option>
+            <option value="email">Email</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:12px;">
+          Submit Request
+        </button>
+
+        <p id="modalStatus" style="margin-top:12px;"></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // View routing: keep only the active view visible to prevent blank screens and unwanted scroll height.
+    function setActiveView(viewId) {
+      const pages = document.querySelectorAll(".page");
+      const targetId = viewId.endsWith("-view") ? viewId : viewId + "-view";
+      const targetPage = document.getElementById(targetId);
+
+      pages.forEach((p) => {
+        p.classList.remove("active");
+        p.style.display = "none";
+      });
+
+      if (targetPage) {
+        targetPage.style.display = "block";
+        requestAnimationFrame(() => targetPage.classList.add("active"));
+      }
+
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    }
+
+    function navigateTo(viewId) {
+      setActiveView(viewId);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      async function refreshGoldTicker() {
+        const ticker = document.getElementById("gold-ticker");
+        if (!ticker) return;
+
+        const valueEl = ticker.querySelector(".nav-ticker-value");
+        try {
+          const resp = await fetch(
+            "https://data-asg.goldprice.org/dbXRates/USD",
+            { cache: "no-store" }
+          );
+          if (!resp.ok) throw new Error("Network response not ok");
+          const data = await resp.json();
+          const item = data?.items?.[0];
+          const xau = Number(item?.xauPrice);
+          if (!Number.isFinite(xau)) throw new Error("Invalid price");
+
+          valueEl.textContent = `$${xau.toFixed(2)}/oz`;
+          ticker.title = `Updated: ${data?.date || "recently"
+            } (source: goldprice.org)`;
+        } catch (err) {
+          valueEl.textContent = "Unavailable";
+          ticker.title =
+            "Live pricing requires an endpoint that allows browser requests (CORS).";
+        }
+      }
+
+      function initBannerCardKeys() {
+        document
+          .querySelectorAll('.banner-card[role="button"]')
+          .forEach((card) => {
+            card.addEventListener("keydown", (e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                card.click();
+              }
+            });
+          });
+      }
+
+      // On first load, show whatever is marked active in the HTML.
+      const active =
+        document.querySelector(".page.active") ||
+        document.querySelector(".page");
+      if (active) {
+        setActiveView(active.id);
+        refreshGoldTicker();
+        setInterval(refreshGoldTicker, 60000);
+      }
+    });
+
+    function resetCategories() {
+      document.getElementById("category-selection").style.display = "block";
+      document.getElementById("intake-form-container").style.display = "none";
+    }
+    document.getElementById("dynamic-intake").style.display = "block";
+
+    function openIntake(type) {
+      document.getElementById("category-selection").style.display = "none";
+      document.getElementById("intake-form-container").style.display =
+        "block";
+      const questionsDiv = document.getElementById("form-questions");
+      const title = document.getElementById("form-title");
+
+      if (type === "diamond") {
+        title.innerText = "Diamond Evaluation";
+        questionsDiv.innerHTML = `
+                    <div class="input-group"><label>Shape</label><select><option>Round</option><option>Oval</option><option>Emerald</option><option>Pear</option><option>Cushion</option><option>Radiant</option><option>others</option></select></div>
+                    <div class="input-group"><label>Size (mm)</label><input type="number" step="0.01"></div>
+                    <div class="input-group"><label>Carat Weight</label><input type="number" step="0.01"></div>
+                    <div class="input-group"><label>Certification</label><select><option>GIA</option><option>EGL</option><option>IGI</option><option>Other</option><option>None</option></select></div>
+                `;
+      } else if (type === "watches") {
+        title.innerText = "Luxury Watches";
+
+        questionsDiv.innerHTML = `
+            <div class="input-group">
+              <label>Brand</label>
+              <select id="watchBrand">
+                <option value="" selected disabled></option>
+                <option>Rolex</option>
+                <option>Omega</option>
+                <option>Cartier</option>
+                <option>Patek Philippe</option>
+                <option>Audemars Piguet</option>
+                <option>Breitling</option>
+                <option>Tag Heuer</option>
+                <option>IWC</option>
+                <option>Panerai</option>
+                <option>Jaeger-LeCoultre</option>
+                <option>Hublot</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="input-group" id="watchBrandOtherWrap" style="display:none;">
+              <label>Enter Brand Name</label>
+              <input id="watchBrandOther" type="text" placeholder="Type the brand name">
+            </div>
+
+            <div class="input-group">
+              <label>Model</label>
+              <select id="watchModel">
+                <option value="" selected disabled></option>
+              </select>
+            </div>
+
+            <div class="input-group" id="watchModelOtherWrap" style="display:none;">
+              <label>Enter Model / Reference</label>
+              <input id="watchModelOther" type="text" placeholder="e.g. Submariner 116610LN / Speedmaster 3570.50">
+            </div>
+
+            <div class="input-group">
+              <label>Condition</label>
+              <select id="watchCondition">
+                <option value="" selected disabled></option>
+                <option>New / Like New</option>
+                <option>Excellent</option>
+                <option>Very Good</option>
+                <option>Good (normal wear)</option>
+                <option>Fair (noticeable wear)</option>
+                <option>Needs service / repair</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label>Box & Papers</label>
+              <select id="watchBnp">
+                <option value="" selected disabled></option>
+                <option>Yes (box + papers)</option>
+                <option>Box only</option>
+                <option>Papers only</option>
+                <option>No</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label>Description</label>
+              <textarea id="watchDesc" placeholder="Any details you want us to know (year, material, reference, service history, extras, etc.)"></textarea>
+            </div>
+          `;
+
+        const brandSelect = document.getElementById("watchBrand");
+        const brandOtherWrap = document.getElementById("watchBrandOtherWrap");
+        const modelSelect = document.getElementById("watchModel");
+        const modelOtherWrap = document.getElementById("watchModelOtherWrap");
+
+        function setModelOptions(brand) {
+          let options = [];
+
+          if (brand === "Rolex") {
+            options = [
+              "Submariner",
+              "Datejust",
+              "Day-Date",
+              "GMT-Master",
+              "Explorer",
+              "Daytona",
+              "Other",
+            ];
+          } else if (brand === "Omega") {
+            options = [
+              "Speedmaster",
+              "Seamaster",
+              "Constellation",
+              "De Ville",
+              "Other",
+            ];
+          } else if (brand === "Cartier") {
+            options = ["Tank", "Santos", "Ballon Bleu", "Panthère", "Other"];
+          } else if (brand === "Patek Philippe") {
+            options = [
+              "Nautilus",
+              "Aquanaut",
+              "Calatrava",
+              "Complications",
+              "Other",
+            ];
+          } else if (brand === "Audemars Piguet") {
+            options = [
+              "Royal Oak",
+              "Royal Oak Offshore",
+              "Code 11.59",
+              "Other",
+            ];
+          } else if (brand === "Breitling") {
+            options = [
+              "Navitimer",
+              "Chronomat",
+              "Superocean",
+              "Avenger",
+              "Other",
+            ];
+          } else if (brand === "Tag Heuer") {
+            options = [
+              "Carrera",
+              "Monaco",
+              "Aquaracer",
+              "Formula 1",
+              "Other",
+            ];
+          } else if (brand === "IWC") {
+            options = [
+              "Portugieser",
+              "Pilot’s Watch",
+              "Portofino",
+              "Ingenieur",
+              "Other",
+            ];
+          } else if (brand === "Panerai") {
+            options = ["Luminor", "Radiomir", "Submersible", "Other"];
+          } else if (brand === "Jaeger-LeCoultre") {
+            options = ["Reverso", "Master Control", "Polaris", "Other"];
+          } else if (brand === "Hublot") {
+            options = [
+              "Big Bang",
+              "Classic Fusion",
+              "Spirit of Big Bang",
+              "Other",
+            ];
+          } else {
+            // brand is blank or Other
+            options = ["Other"];
+          }
+
+          modelSelect.innerHTML = `
+              <option value="" selected disabled></option>
+              ${options.map((o) => `<option>${o}</option>`).join("")}
+            `;
+
+          // Default: hide model other input until "Other" chosen
+          modelOtherWrap.style.display = "none";
+        }
+
+        // When brand changes: show brand other field if needed + set models
+        brandSelect.addEventListener("change", () => {
+          const isBrandOther = brandSelect.value === "Other";
+          brandOtherWrap.style.display = isBrandOther ? "block" : "none";
+          setModelOptions(brandSelect.value);
+        });
+
+        // When model changes: show model other field if needed
+        modelSelect.addEventListener("change", () => {
+          const isModelOther = modelSelect.value === "Other";
+          modelOtherWrap.style.display = isModelOther ? "block" : "none";
+        });
+
+        // Initialize models empty (brand not selected yet)
+        setModelOptions("");
+      } else if (type === "jewelry") {
+        title.innerText = "Fine Jewelry";
+
+        questionsDiv.innerHTML = `
+            <div class="input-group">
+              <label>Item Type</label>
+              <select id="jewelryType">
+                <option value="" selected disabled></option>
+                <option>Ring</option>
+                <option>Bracelet</option>
+                <option>Pendant</option>
+                <option>Necklace</option>
+                <option>Band</option>
+                <option>Other estate jewelry</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label>Brand</label>
+              <select id="jewelryBrand">
+                <option value="" selected disabled></option>
+                <option>Cartier</option>
+                <option>Tiffany & Co.</option>
+                <option>Van Cleef & Arpels</option>
+                <option>Bulgari</option>
+                <option>Chanel</option>
+                <option>Harry Winston</option>
+                <option>Graff</option>
+                <option>David Yurman</option>
+                <option>Buccellati</option>
+                <option>Piaget</option>
+                <option>Mikimoto</option>
+                <option>Chopard</option>
+                <option>Pomellato</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="input-group" id="brandOtherWrap" style="display:none;">
+              <label>Enter Brand Name</label>
+              <input id="brandOther" type="text" placeholder="Type the brand name">
+            </div>
+
+            <div class="input-group">
+              <label>Condition</label>
+              <select id="jewelryCondition">
+                <option value="" selected disabled></option>
+                <option>New / Like New</option>
+                <option>Excellent</option>
+                <option>Very Good</option>
+                <option>Good (normal wear)</option>
+                <option>Fair (noticeable wear)</option>
+                <option>Needs repair</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label>Description</label>
+              <textarea id="jewelryDesc" placeholder="Any details you want us to know (stones, metal, size, paperwork, etc.)"></textarea>
+            </div>
+          `;
+
+        const brandSelect = document.getElementById("jewelryBrand");
+        const otherWrap = document.getElementById("brandOtherWrap");
+
+        brandSelect.addEventListener("change", () => {
+          const isOther = brandSelect.value === "Other";
+          otherWrap.style.display = isOther ? "block" : "none";
+        });
+      }
+    }
+
+    document.getElementById("contactForm").onsubmit = (e) => {
+      e.preventDefault();
+      alert("Thank you. We will contact you shortly.");
+    };
+  </script>
+
+  <footer class="site-footer" aria-label="Footer">
+    <div class="footer-inner">
+      <svg class="mdb-diamond footer-logo-svg" viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg"
+        aria-label="Diamond logo">
+        <path d="M20 35 L40 15 H80 L100 35 L60 75 Z" fill="none" stroke="currentColor" stroke-width="6.5"
+          stroke-linejoin="round" stroke-linecap="round" />
+        <path d="M40 15 L60 35 L80 15" fill="none" stroke="currentColor" stroke-width="6.5" stroke-linejoin="round"
+          stroke-linecap="round" />
+      </svg>
+
+
+
+      <div class="footer-brand">
+        <div class="footer-name">Midwest Diamond Buyers</div>
+        <p class="footer-desc">
+          Address: 29 E Madison St, Chicago, IL 60602
+          <br>Call Us: 708 683 9833
+        </p>
+        <!-- Gold price now under the logo -->
+        <div class="logo-sub" id="gold-ticker" aria-live="polite">
+          Gold: <span class="nav-ticker-value">—</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#" onclick="navigateTo('home')">Home</a></li>
+          <li><a href="#" onclick="navigateTo('about')">About</a></li>
+          <li>
+            <a href="#" onclick="navigateTo('categories')">What We Buy</a>
+          </li>
+          <li>
+            <a href="#" onclick="navigateTo('contact')">Contact Us</a>
+          </li>
+          <li>
+            <a href="#" onclick="navigateTo('appointment')">Book Appointment</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Resources</h4>
+        <ul class="footer-links">
+          <li><a href="blog.html">Blogs</a></li>
+          <li><a href="faq.html">FAQs</a></li>
+          <li>
+            <a href="https://www.google.com/search?q=Midwest+Diamond+Buyers&sca_esv=492d03d456b59a14&rlz=1C1GCEU_enUS&ei=zx5padiiEe2z5NoPzsy66QY&ved=0ahUKEwiYxvmShI6SAxXtGVkFHU6mLm0Q4dUDCBE&uact=5&oq=Midwest+Diamond+Buyers&gs_lp=Egxnd3Mtd2l6LXNlcnAiFk1pZHdlc3QgRGlhbW9uZCBCdXllcnMyDhAuGIAEGMcBGI4FGK8BMgIQJjIIEAAYgAQYogQyCBAAGIAEGKIEMgUQABjvBTIdEC4YgAQYxwEYjgUYrwEYlwUY3AQY3gQY4ATYAQFI5xlQrAlYnhVwAXgBkAEAmAFyoAHSBqoBAzEuN7gBA8gBAPgBAZgCBKAC5ALCAgoQABiwAxjWBBhHwgIGEAAYFhgemAMAiAYBkAYIugYGCAEQARgUkgcDMS4zoAewHrIHAzAuM7gH2wLCBwUyLTMuMcgHGIAIAA&sclient=gws-wiz-serp"
+              target="_blank" rel="noopener noreferrer">
+              Google Reviews
+            </a>
+          </li>
+
+          <li>
+            <a href="#" onclick="navigateTo('contact')">Get an Evaluation</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Legal</h4>
+        <ul class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms & Conditions</a>
+          <a href="shipping.html">Shipping</a>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="footerYear"></span>2026 Midwest Diamond Buyers. All rights
+      reserved.
+    </div>
+  </footer>
+
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script>
+    function resetCategoriesView() {
+      // IMPORTANT: do NOT hide #dynamic-intake itself.
+      // Your app shows/hides the CONTAINER: #intake-form-container.
+
+      // Show category grid
+      const categoryGrid = document.getElementById("category-selection");
+      if (categoryGrid) categoryGrid.style.display = "block";
+
+      // Hide intake container
+      const intakeContainer = document.getElementById("intake-form-container");
+      if (intakeContainer) intakeContainer.style.display = "none";
+
+      // Clear dynamic questions so it doesn't "resume" the prior form
+      const questions = document.getElementById("form-questions");
+      if (questions) questions.innerHTML = "";
+
+      // Reset title back to default
+      const title = document.getElementById("form-title");
+      if (title) title.innerText = "Evaluation";
+
+      // Clear any remembered intake data (safe even if unused)
+      window.currentIntakeType = null;
+    }
+    function goToFreshCategories() {
+      navigateTo("categories");     // go to the page first
+      resetCategoriesView();        // then force the grid view
+    }
+
+
+  </script>
+
+  <script>
+    // HERO CTA: Chicago time-based behavior
+    (function () {
+      const el = document.getElementById("heroTimeCta");
+      if (!el) return;
+
+      function setHeroCta() {
+        const now = new Date();
+        const parts = new Intl.DateTimeFormat("en-US", {
+          timeZone: "America/Chicago",
+          hour: "numeric",
+          hour12: false,
+        }).formatToParts(now);
+        const hour = Number(
+          parts.find((p) => p.type === "hour")?.value ?? "0"
+        );
+
+        const isCallHours = hour >= 9 && hour < 16; // 9:00 - 15:59
+        if (isCallHours) {
+          el.textContent = "Call Now";
+          el.href = "tel:+17086839833";
+        } else {
+          el.textContent = "Schedule Appointment";
+          el.href = "#";
+          el.onclick = (e) => {
+            e.preventDefault();
+            navigateTo("appointment");
+          };
+        }
+      }
+
+      setHeroCta();
+      // update every 5 minutes
+      setInterval(setHeroCta, 5 * 60 * 1000);
+    })();
+
+    // Keyboard support for div role=button items
+    document.addEventListener("keydown", (e) => {
+      const t = e.target;
+      if (!t) return;
+      if (
+        (e.key === "Enter" || e.key === " ") &&
+        t.getAttribute &&
+        t.getAttribute("role") === "button"
+      ) {
+        e.preventDefault();
+        t.click();
+      }
+    });
+  </script>
+  <script>
+    function setNavHeight() {
+      const nav = document.querySelector("nav");
+      if (!nav) return;
+      document.documentElement.style.setProperty(
+        "--nav-h",
+        nav.offsetHeight + "px"
+      );
+    }
+    window.addEventListener("load", setNavHeight);
+    window.addEventListener("resize", setNavHeight);
+  </script>
+  <script>
+    function setNavHeight() {
+      const nav = document.querySelector("nav");
+      if (!nav) return;
+      document.documentElement.style.setProperty(
+        "--nav-h",
+        nav.offsetHeight + "px"
+      );
+    }
+    window.addEventListener("load", setNavHeight);
+    window.addEventListener("resize", setNavHeight);
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      if (window.location.hash === "#appointment") {
+        navigateTo("appointment");
+      }
+    });
+  </script>
+  <script>
+    let pendingIntakeData = null;
+
+    function openContactModal() {
+      const modal = document.getElementById("contactModal");
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+
+      // Basic escape-to-close
+      document.addEventListener("keydown", escCloseHandler);
+    }
+
+    function closeContactModal() {
+      const modal = document.getElementById("contactModal");
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      document.removeEventListener("keydown", escCloseHandler);
+    }
+
+    function escCloseHandler(e) {
+      if (e.key === "Escape") closeContactModal();
+    }
+
+
+    function collectDynamicIntakeData() {
+      const title = (document.getElementById("form-title")?.innerText || "").trim();
+      const groups = document.querySelectorAll("#form-questions .input-group");
+
+      const fields = {};
+      groups.forEach((g) => {
+        const label = (g.querySelector("label")?.innerText || "").trim();
+        const el = g.querySelector("input, select, textarea");
+        if (!label || !el) return;
+
+        let value = "";
+        if (el.tagName === "SELECT") value = el.value || "";
+        else value = (el.value || "").trim();
+
+        fields[label] = value;
+      });
+
+      return { intakeTitle: title, fields };
+    }
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const intakeForm = document.getElementById("dynamic-intake");
+      const modalForm = document.getElementById("modalContactForm");
+
+      if (intakeForm) {
+        intakeForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          // 1) Capture item details
+          pendingIntakeData = collectDynamicIntakeData();
+
+          // 2) Show summary in the modal so user knows we kept their item info
+          const summary = document.getElementById("intakeSummary");
+          const lines = Object.entries(pendingIntakeData.fields)
+            .filter(([, v]) => String(v).trim() !== "")
+            .slice(0, 6)
+            .map(([k, v]) => `<div><strong>${k}:</strong> ${String(v)}</div>`)
+            .join("");
+
+          summary.innerHTML = `
+        <div style="font-weight:800; margin-bottom:8px;">Item details saved</div>
+        <div style="opacity:.85;">${lines || "Your item details are ready. Please add your contact info below."}</div>
+      `;
+
+          // 3) Open popup for contact details
+          openContactModal();
+        });
+      }
+
+      // Submit popup contact form and combine both payloads
+      if (modalForm) {
+        modalForm.addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const statusEl = document.getElementById("modalStatus");
+
+          // Reset any old message
+          statusEl.textContent = "";
+          statusEl.style.color = "";
+
+          statusEl.textContent = "Submitting…";
+
+          const contact = {
+            fullName: document.getElementById("modalFullName").value.trim(),
+            email: document.getElementById("modalEmail").value.trim(),
+            phone: document.getElementById("modalPhone").value.trim(),
+            preferredContact: document.getElementById("modalPreferredContact").value
+          };
+
+          const combinedPayload = {
+            contact,
+            intake: pendingIntakeData || null,
+            sourcePage: window.location.href,
+            submittedAt: new Date().toISOString()
+          };
+
+          try {
+            // ⬅️ This is where your real endpoint will go later
+            console.log("LEAD SUBMISSION:", combinedPayload);
+
+            // ✅ SUCCESS MESSAGE — ONLY AFTER FINAL SUBMIT
+            statusEl.textContent = "Thank you — we received your request.";
+            statusEl.style.color = "green";
+
+            modalForm.reset();
+            pendingIntakeData = null;
+
+            // Optional: auto-close after user sees confirmation
+            setTimeout(() => {
+              closeContactModal();
+              statusEl.textContent = "";
+            }, 1200);
+
+          } catch (err) {
+            console.error(err);
+            statusEl.textContent = "Something went wrong. Please try again or call us.";
+            statusEl.style.color = "red";
+          }
+        });
+
+      }
+    });
+
+  </script>
+  
+
+  <!-- Gold Price Popup 
+  <div class="gold-popup-overlay" id="goldPopup">
+    <div class="gold-popup">
+      <button class="gold-popup-close" aria-label="Close popup" onclick="closeGoldPopup()">×</button>
+
+      <span class="gold-popup-eyebrow">Market Alert</span>
+      <h2>GOLD IS AT AN ALL TIME HIGH</h2>
+
+      <p>
+        Sell it to
+        <strong>Chicago’s most trusted buyer</strong>.
+      </p>
+
+      <a href="tel:+17086839833" class="gold-popup-cta">
+        Call Now
+      </a>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const popup = document.getElementById("goldPopup");
+
+      if (popup) {
+        // The timer starts immediately on every reload
+        setTimeout(() => {
+          // 1. Make the element exist in the layout
+          popup.style.display = "flex";
+
+          // 2. Trigger the fade-in effect
+          setTimeout(() => {
+            popup.style.opacity = "1";
+          }, 10);
+        }, 5000); // 5 seconds
+      }
+    });
+
+    // This function now only hides the popup for the current view
+    function closeGoldPopup() {
+      const popup = document.getElementById("goldPopup");
+      if (popup) {
+        popup.style.opacity = "0";
+        setTimeout(() => {
+          popup.style.display = "none";
+        }, 500);
+      }
+      // We NO LONGER save "goldPopupSeen" here
+    }
+  </script>
+-->
+  <script>
+    function goToSellingProcess(e) {
+      e.preventDefault();
+
+      // If not already on home view, switch to it
+      const homeView = document.getElementById("home-view");
+      const isHomeVisible = homeView && homeView.classList.contains("active");
+
+      if (!isHomeVisible && typeof navigateTo === "function") {
+        navigateTo("home");
+      }
+
+      // Wait a tiny moment if switching views
+      setTimeout(() => {
+        const section = document.getElementById("selling-process");
+        if (section) {
+          const yOffset = -120; // Adjust to your navbar height
+          const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+          window.scrollTo({
+            top: y,
+            behavior: "smooth"
+          });
+        }
+      }, 100);
+    }
+  </script>
+  <script>
+    function goToCategories() {
+      // Show the categories section
+      navigateTo('categories');
+
+      // Reset any previous form state
+      const intakeForm = document.getElementById('intake-form-container');
+      if (intakeForm) {
+        intakeForm.style.display = 'none'; // hide the jewelry form
+      }
+    }
+  </script>
+
+</body>
+
+</html>
