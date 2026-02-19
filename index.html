@@ -3259,6 +3259,7 @@
               ">
             Inquiry Details
           </h3>
+<!--
           <form id="contactForm">
             <div class="input-group">
               <label for="fullName">Full Name</label>
@@ -3284,6 +3285,62 @@
             <div class="input-group">
               <label for="assets">Description of Assets</label>
               <textarea id="assets" name="assets" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn">Submit Inquiry</button>
+          </form>
+        -->
+          <!--new form for contact us-->
+          <form id="contactForm">
+            <input type="hidden" name="form_type" value="contact_us" />
+
+            <div class="input-group">
+              <label for="fullName">Full Name</label>
+              <input
+                id="fullName"
+                name="fullName"
+                type="text"
+                autocomplete="name"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="email">Email Address</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="phone">Cell Phone</label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                inputmode="tel"
+                autocomplete="tel"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="preferredContact">Preferred Mode of Contact</label>
+              <select id="preferredContact" name="preferredContact" required>
+                <option value="" selected disabled></option>
+                <option value="text">Text message</option>
+                <option value="phone">Phone call</option>
+                <option value="email">Email</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label for="assets">Description of Assets</label>
+              <textarea
+                id="assets"
+                name="assets"
+                rows="4"
+                required
+              ></textarea>
             </div>
             <button type="submit" class="btn">Submit Inquiry</button>
           </form>
@@ -4012,6 +4069,20 @@
 
   </script>
   
+  <script>
+    //this finds all forms on the page with the class "contactForm"
+    const forms = document.querySelectorAll('.contactForm');
+
+    //google script url
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxWy0Kn-YYF1ha5jRCokbufhhHtN2uLITtkXnAGvVlgAuT_Vb_EN0fYSLDjxX8gGnLohA/exec";
+
+    //this loops through every form it finds and attaches the background sender
+    forms.forEach(form => {
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+      });
+    })
+  </script>
 
   <!-- Gold Price Popup 
   <div class="gold-popup-overlay" id="goldPopup">
