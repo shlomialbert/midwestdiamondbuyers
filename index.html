@@ -2500,6 +2500,67 @@
   box-shadow: var(--shadowSoft);
 }*/
 
+/* =========================================
+   HOME FIRST SECTION – iOS / MOBILE FIX
+   ========================================= */
+
+@media (max-width: 768px) {
+
+  /* 1. Single column layout */
+  #home-view .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: -40px;
+    padding: 0 20px 80px;
+  }
+
+  /* 2. Make cards more compact */
+  #home-view .card {
+    border-radius: 22px;
+  }
+
+  /* 3. Reduce image height (remove huge 400px block) */
+  #home-view .card-image-wrapper img {
+    height: 220px;
+    object-fit: cover;
+  }
+
+  /* 4. Hide paragraph text completely */
+  #home-view .card p {
+    display: none;
+  }
+
+  /* 5. Ensure H3 never gets cut */
+  #home-view .card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 6px;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+  }
+
+  /* 6. Tighten card body spacing */
+  #home-view .card-body {
+    padding: 14px 16px 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-ticker  {
+    background: linear-gradient(135deg,
+          rgba(0, 85, 162, 0.92),
+          rgba(126, 230, 209, 0.55));
+    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.28);
+    cursor: pointer;
+    transition: transform var(--t), filter var(--t);
+    border: none;
+  }
+
+  #home-view .section-header {
+    margin-top: -50px;
+  }
+}
+
   </style>
 </head>
 
