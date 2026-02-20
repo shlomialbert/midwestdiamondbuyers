@@ -4140,35 +4140,117 @@
   </script>
   
   <script>
-    //this finds all forms on the page with the class "contactForm"
-    const forms = document.querySelectorAll('.gSheetForm');
+document.addEventListener("DOMContentLoaded", function () {
 
-    //google script url
-    const scriptURL = "https://script.google.com/macros/s/AKfycbxWy0Kn-YYF1ha5jRCokbufhhHtN2uLITtkXnAGvVlgAuT_Vb_EN0fYSLDjxX8gGnLohA/exec";
+  const scriptURL = "https://script.google.com/macros/s/AKfycbxWy0Kn-YYF1ha5jRCokbufhhHtN2uLITtkXnAGvVlgAuT_Vb_EN0fYSLDjxX8gGnLohA/exec";
 
-    //this loops through every form it finds and attaches the background sender
-    forms.forEach(form => {
-      form.addEventListener('submit', e => {
-        e.preventDefault();
+  let itemData = {};
 
-        const btn = form.querySelector('button');
-        btn.textContent = 'Sending...';
+  // ==========================
+  // CONTACT FORM
+  // ==========================
+  const contactForm = document.getElementById("contactForm");
 
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-          .then(response => {
-            alert('Thank You! We will get back to you shortly.');
-            form.reset();
-            btn.textContent = 'Submit Inquiry';
-          })
-          .catch(error => {
-            console.error('Error', error.message);
-            alert('Something went wrong. Please try again.');
-            btn.textContent = 'Submit Inquiry';
-          });
-      });
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      formData.append("form_type", "contact_us");
+
+      fetch(scriptURL, {
+        method: "POST",
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.result === "success") {
+          alert("Message sent successfully");
+          this.reset();
+        } else {
+          alert("Error: " + data.message);
+        }
+      })
+      .catch(err => console.error(err));
     });
-  </script>
+  }
 
+  // ==========================
+  // SAVE ITEM DATA (STEP 1)
+  // ==========================
+  window.saveItemData = function(type) {
+
+    itemData = {};
+    itemData.itemType = type;
+
+    if (type === "diamond") {
+      itemData.shape = document.querySelector("[name='shape']")?.value || "";
+      itemData.size = document.querySelector("[name='size']")?.value || "";
+      itemData.caratWeight = document.querySelector("[name='caratWeight']")?.value || "";
+      itemData.certification = document.querySelector("[name='certification']")?.value || "";
+    }
+
+    if (type === "watch") {
+      itemData.brand = document.querySelector("[name='brand']")?.value || "";
+      itemData.model = document.querySelector("[name='model']")?.value || "";
+      itemData.condition = document.querySelector("[name='condition']")?.value || "";
+      itemData.boxPapers = document.querySelector("[name='boxPapers']")?.value || "";
+      itemData.description = document.querySelector("[name='description']")?.value || "";
+    }
+
+    if (type === "jewelry") {
+      itemData.jewelryType = document.querySelector("[name='jewelryType']")?.value || "";
+      itemData.brand = document.querySelector("[name='brand']")?.value || "";
+      itemData.condition = document.querySelector("[name='condition']")?.value || "";
+      itemData.description = document.querySelector("[name='description']")?.value || "";
+    }
+
+    // show appointment form here if needed
+  };
+
+  // ==========================
+  // APPOINTMENT FORM (STEP 2)
+  // ==========================
+  const appointmentForm = document.getElementById("appointmentForm");
+
+  if (appointmentForm) {
+    appointmentForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData();
+      formData.append("form_type", "what_we_buy");
+
+      // item data
+      for (let key in itemData) {
+        formData.append(key, itemData[key]);
+      }
+
+      // contact data
+      formData.append("fullName", this.fullName.value);
+      formData.append("email", this.email.value);
+      formData.append("phone", this.phone.value);
+      formData.append("preferredContact", this.preferredContact.value);
+
+      fetch(scriptURL, {
+        method: "POST",
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.result === "success") {
+          alert("Appointment request submitted");
+          this.reset();
+          itemData = {};
+        } else {
+          alert("Error: " + data.message);
+        }
+      })
+      .catch(err => console.error(err));
+    });
+  }
+
+});
+</script>
   <!-- Gold Price Popup 
   <div class="gold-popup-overlay" id="goldPopup">
     <div class="gold-popup">
