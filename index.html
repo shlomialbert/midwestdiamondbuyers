@@ -3473,8 +3473,17 @@
 
     // UPDATED: Navigate and push to History
     function navigateTo(viewId, pushToHistory = true) {
-      const cleanId = viewId.endsWith("-view") ? viewId.replace("-view", "") : viewId;
+      const cleanId = viewId.endsWith("-view")
+        ? viewId.replace("-view", "")
+        : viewId;
+
+      // RESET categories internal state if navigating to categories
+      if (cleanId === "categories") {
+        resetCategories();
+      }
+
       setActiveView(cleanId);
+
       if (pushToHistory) {
         history.pushState({ page: cleanId }, "", "#" + cleanId);
       }
