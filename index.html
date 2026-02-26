@@ -3574,9 +3574,12 @@
         title.innerText = "Diamond Evaluation";
         questionsDiv.innerHTML = `
                     <div class="input-group"><label>Shape</label><select><option>Round</option><option>Oval</option><option>Emerald</option><option>Pear</option><option>Cushion</option><option>Radiant</option><option>others</option></select></div>
-                    <div class="input-group"><label>Size (mm)</label><input type="number" step="0.01"></div>
                     <div class="input-group"><label>Carat Weight</label><input type="number" step="0.01"></div>
                     <div class="input-group"><label>Certification</label><select><option>GIA</option><option>EGL</option><option>IGI</option><option>Other</option><option>None</option></select></div>
+                    <div class="input-group">
+                      <label>Upload Image (Optional)</label>
+                      <input type="file" id="itemImage" accept="image/*">
+                    </div>
                 `;
       } else if (type === "watches") {
         title.innerText = "Luxury Watches";
@@ -3645,6 +3648,10 @@
             <div class="input-group">
               <label>Description</label>
               <textarea id="watchDesc" placeholder="Any details you want us to know (year, material, reference, service history, extras, etc.)"></textarea>
+            </div>
+            <div class="input-group">
+              <label>Upload Image (Optional)</label>
+              <input type="file" id="itemImage" accept="image/*">
             </div>
           `;
 
@@ -3814,6 +3821,10 @@
             <div class="input-group">
               <label>Description</label>
               <textarea id="jewelryDesc" placeholder="Any details you want us to know (stones, metal, size, paperwork, multiple items, etc.)"></textarea>
+            </div>
+            <div class="input-group">
+              <label>Upload Image (Optional)</label>
+              <input type="file" id="itemImage" accept="image/*">
             </div>
           `;
 
@@ -4053,19 +4064,39 @@
       return { intakeTitle: title, fields };
     }
 
+    function getBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+      });
+    }
 
     document.addEventListener("DOMContentLoaded", () => {
       const intakeForm = document.getElementById("dynamic-intake");
       const modalForm = document.getElementById("modalContactForm");
 
       if (intakeForm) {
-        intakeForm.addEventListener("submit", (e) => {
+        // We added 'async' here so it can wait for the image to process
+        intakeForm.addEventListener("submit", async (e) => {
           e.preventDefault();
 
           // 1) Capture item details
           pendingIntakeData = collectDynamicIntakeData();
 
-          // 2) Show summary in the modal so user knows we kept their item info
+          // NEW: Check for an image and process it
+          const imageInput = document.getElementById("itemImage");
+          if (imageInput && imageInput.files.length > 0) {
+            const file = imageInput.files[0];
+            const base64 = await getBase64(file);
+
+            pendingIntakeData.imageName = file.name;
+            pendingIntakeData.imageMimeType = file.type;
+            pendingIntakeData.imageBase64 = base64.split(',')[1]; // Removes the data URL prefix
+          }
+
+          // 2) Show summary in the modal
           const summary = document.getElementById("intakeSummary");
           const lines = Object.entries(pendingIntakeData.fields)
             .filter(([, v]) => String(v).trim() !== "")
@@ -4073,16 +4104,19 @@
             .map(([k, v]) => `<div><strong>${k}:</strong> ${String(v)}</div>`)
             .join("");
 
+          // Notice the added line at the bottom to show a success message if an image is attached
           summary.innerHTML = `
-        <div style="font-weight:800; margin-bottom:8px;">Item details saved</div>
-        <div style="opacity:.85;">${lines || "Your item details are ready. Please add your contact info below."}</div>
-      `;
+            <div style="font-weight:800; margin-bottom:8px;">Item details saved</div>
+            <div style="opacity:.85;">${lines || "Your item details are ready. Please add your contact info below."}</div>
+            ${pendingIntakeData.imageBase64 ? '<div style="color: green; margin-top:8px;">✓ Image attached</div>' : ''}
+          `;
 
           // 3) Open popup for contact details
           openContactModal();
         });
       }
 
+      // Submit popup contact form and combine both payloads
       // Submit popup contact form and combine both payloads
       if (modalForm) {
         modalForm.addEventListener("submit", async (e) => {
@@ -4094,7 +4128,8 @@
           statusEl.textContent = "";
           statusEl.style.color = "";
 
-          statusEl.textContent = "Submitting…";
+          statusEl.textContent = "Submitting and uploading image…";
+          statusEl.style.color = "blue";
 
           const contact = {
             fullName: document.getElementById("modalFullName").value.trim(),
@@ -4110,22 +4145,37 @@
             submittedAt: new Date().toISOString()
           };
 
+          // *** IMPORTANT: PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE ***
+          const scriptURL = "https://script.google.com/macros/s/AKfycbxWy0Kn-YYF1ha5jRCokbufhhHtN2uLITtkXnAGvVlgAuT_Vb_EN0fYSLDjxX8gGnLohA/exec";
+
           try {
-            // ⬅️ This is where your real endpoint will go later
             console.log("LEAD SUBMISSION:", combinedPayload);
 
-            // ✅ SUCCESS MESSAGE — ONLY AFTER FINAL SUBMIT
-            statusEl.textContent = "Thank you — we received your request.";
-            statusEl.style.color = "green";
+            // NEW: Actually send the data to Google Apps Script
+            const response = await fetch(scriptURL, {
+              method: 'POST',
+              headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+              body: JSON.stringify(combinedPayload)
+            });
 
-            modalForm.reset();
-            pendingIntakeData = null;
+            const result = await response.json();
 
-            // Optional: auto-close after user sees confirmation
-            setTimeout(() => {
-              closeContactModal();
-              statusEl.textContent = "";
-            }, 1200);
+            if (result.result === "success") {
+              // SUCCESS MESSAGE
+              statusEl.textContent = "Thank you — we received your request.";
+              statusEl.style.color = "green";
+
+              modalForm.reset();
+              pendingIntakeData = null;
+
+              // Optional: auto-close after user sees confirmation
+              setTimeout(() => {
+                closeContactModal();
+                statusEl.textContent = "";
+              }, 1200);
+            } else {
+              throw new Error(result.error || "Unknown error occurred.");
+            }
 
           } catch (err) {
             console.error(err);
@@ -4133,7 +4183,6 @@
             statusEl.style.color = "red";
           }
         });
-
       }
     });
 
