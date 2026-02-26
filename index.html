@@ -4123,6 +4123,7 @@
       }
 
       // PART 2: Combine and send to Google Apps Script
+      // Submit popup contact form and combine both payloads
       if (modalForm) {
         modalForm.addEventListener("submit", async (e) => {
           e.preventDefault();
@@ -4130,9 +4131,10 @@
           const statusEl = document.getElementById("modalStatus");
           const submitBtn = modalForm.querySelector('button[type="submit"]');
 
-          statusEl.textContent = "Submitting and uploading image…";
+          // Reset any old message
+          statusEl.textContent = "Submitting…";
           statusEl.style.color = "blue";
-          submitBtn.disabled = true; // Prevent accidental double-clicks
+          submitBtn.disabled = true; // Prevents the user from clicking twice
 
           const contact = {
             fullName: document.getElementById("modalFullName").value.trim(),
@@ -4148,10 +4150,11 @@
             submittedAt: new Date().toISOString()
           };
 
-          // *** PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE ***
+          // Your Google Apps Script Web App URL
           const scriptURL = "https://script.google.com/macros/s/AKfycbxWy0Kn-YYF1ha5jRCokbufhhHtN2uLITtkXnAGvVlgAuT_Vb_EN0fYSLDjxX8gGnLohA/exec";
 
           try {
+            // Actually send the data to Google Apps Script
             const response = await fetch(scriptURL, {
               method: 'POST',
               headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -4161,17 +4164,19 @@
             const result = await response.json();
 
             if (result.result === "success") {
+              // SUCCESS MESSAGE
               statusEl.textContent = "Thank you — we received your request.";
               statusEl.style.color = "green";
 
               modalForm.reset();
               pendingIntakeData = null;
 
+              // Auto-close after user sees confirmation
               setTimeout(() => {
                 closeContactModal();
                 statusEl.textContent = "";
                 submitBtn.disabled = false;
-              }, 1500);
+              }, 1200);
             } else {
                throw new Error(result.error || "Unknown error occurred.");
             }
