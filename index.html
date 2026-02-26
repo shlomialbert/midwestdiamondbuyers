@@ -4073,30 +4073,38 @@
       });
     }
 
+    // Helper function to convert the image to Base64 text
+    function getBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+      });
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
       const intakeForm = document.getElementById("dynamic-intake");
       const modalForm = document.getElementById("modalContactForm");
 
+      // PART 1: Capture item details + image
       if (intakeForm) {
-        // We added 'async' here so it can wait for the image to process
         intakeForm.addEventListener("submit", async (e) => {
           e.preventDefault();
 
-          // 1) Capture item details
           pendingIntakeData = collectDynamicIntakeData();
 
-          // NEW: Check for an image and process it
+          // Process the image if one was uploaded
           const imageInput = document.getElementById("itemImage");
           if (imageInput && imageInput.files.length > 0) {
-            const file = imageInput.files[0];
-            const base64 = await getBase64(file);
-
-            pendingIntakeData.imageName = file.name;
-            pendingIntakeData.imageMimeType = file.type;
-            pendingIntakeData.imageBase64 = base64.split(',')[1]; // Removes the data URL prefix
+             const file = imageInput.files[0];
+             const base64 = await getBase64(file);
+             
+             pendingIntakeData.imageName = file.name;
+             pendingIntakeData.imageMimeType = file.type;
+             pendingIntakeData.imageBase64 = base64.split(',')[1]; 
           }
 
-          // 2) Show summary in the modal
           const summary = document.getElementById("intakeSummary");
           const lines = Object.entries(pendingIntakeData.fields)
             .filter(([, v]) => String(v).trim() !== "")
@@ -4104,32 +4112,27 @@
             .map(([k, v]) => `<div><strong>${k}:</strong> ${String(v)}</div>`)
             .join("");
 
-          // Notice the added line at the bottom to show a success message if an image is attached
           summary.innerHTML = `
             <div style="font-weight:800; margin-bottom:8px;">Item details saved</div>
             <div style="opacity:.85;">${lines || "Your item details are ready. Please add your contact info below."}</div>
             ${pendingIntakeData.imageBase64 ? '<div style="color: green; margin-top:8px;">✓ Image attached</div>' : ''}
           `;
 
-          // 3) Open popup for contact details
           openContactModal();
         });
       }
 
-      // Submit popup contact form and combine both payloads
-      // Submit popup contact form and combine both payloads
+      // PART 2: Combine and send to Google Apps Script
       if (modalForm) {
         modalForm.addEventListener("submit", async (e) => {
           e.preventDefault();
 
           const statusEl = document.getElementById("modalStatus");
-
-          // Reset any old message
-          statusEl.textContent = "";
-          statusEl.style.color = "";
+          const submitBtn = modalForm.querySelector('button[type="submit"]');
 
           statusEl.textContent = "Submitting and uploading image…";
           statusEl.style.color = "blue";
+          submitBtn.disabled = true; // Prevent accidental double-clicks
 
           const contact = {
             fullName: document.getElementById("modalFullName").value.trim(),
@@ -4145,13 +4148,10 @@
             submittedAt: new Date().toISOString()
           };
 
-          // *** IMPORTANT: PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE ***
+          // *** PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE ***
           const scriptURL = "https://script.google.com/macros/s/AKfycbxWy0Kn-YYF1ha5jRCokbufhhHtN2uLITtkXnAGvVlgAuT_Vb_EN0fYSLDjxX8gGnLohA/exec";
 
           try {
-            console.log("LEAD SUBMISSION:", combinedPayload);
-
-            // NEW: Actually send the data to Google Apps Script
             const response = await fetch(scriptURL, {
               method: 'POST',
               headers: { 'Content-Type': 'text/plain;charset=utf-8' },
@@ -4161,26 +4161,26 @@
             const result = await response.json();
 
             if (result.result === "success") {
-              // SUCCESS MESSAGE
               statusEl.textContent = "Thank you — we received your request.";
               statusEl.style.color = "green";
 
               modalForm.reset();
               pendingIntakeData = null;
 
-              // Optional: auto-close after user sees confirmation
               setTimeout(() => {
                 closeContactModal();
                 statusEl.textContent = "";
-              }, 1200);
+                submitBtn.disabled = false;
+              }, 1500);
             } else {
-              throw new Error(result.error || "Unknown error occurred.");
+               throw new Error(result.error || "Unknown error occurred.");
             }
 
           } catch (err) {
             console.error(err);
             statusEl.textContent = "Something went wrong. Please try again or call us.";
             statusEl.style.color = "red";
+            submitBtn.disabled = false;
           }
         });
       }
