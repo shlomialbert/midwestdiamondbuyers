@@ -2573,14 +2573,18 @@
     }
 
     #dynamic-intake .btn {
-  background-color: #e6e6e6;   /* light gray */
-  border: 1px solid #000;      /* black border */
-  color: #000;                 /* optional: makes text black */
-}
+      background-color: #e6e6e6;
+      /* light gray */
+      border: 1px solid #000;
+      /* black border */
+      color: #000;
+      /* optional: makes text black */
+    }
 
-#dynamic-intake .btn:hover {
-  background-color: #d9d9d9;   /* slightly darker on hover */
-}
+    #dynamic-intake .btn:hover {
+      background-color: #d9d9d9;
+      /* slightly darker on hover */
+    }
   </style>
 </head>
 
@@ -2911,19 +2915,9 @@
       <section id="selling-process" class="section" aria-label="Selling process">
         <div class="process-wrap">
           <div class="section-header">
-            <p style="
-                  text-transform: uppercase;
-                  letter-spacing: 0.22em;
-                  font-size: 0.7rem;
-                  color: rgba(212, 178, 123, 0.95);
-                  margin-bottom: 10px;
-                ">
-              Selling process
-            </p>
-            <h2 class="section-title">What happens after you submit</h2>
+            <h2 class="section-title">Selling Process</h2>
             <p class="section-subtitle">
-              A simple, same-day workflow designed for privacy, clarity, and
-              immediate payment.
+              We designed a simple process with your clarity and privacy in mind.
             </p>
           </div>
 
@@ -4112,12 +4106,12 @@
           // Process the image if one was uploaded
           const imageInput = document.getElementById("itemImage");
           if (imageInput && imageInput.files.length > 0) {
-             const file = imageInput.files[0];
-             const base64 = await getBase64(file);
-             
-             pendingIntakeData.imageName = file.name;
-             pendingIntakeData.imageMimeType = file.type;
-             pendingIntakeData.imageBase64 = base64.split(',')[1]; 
+            const file = imageInput.files[0];
+            const base64 = await getBase64(file);
+
+            pendingIntakeData.imageName = file.name;
+            pendingIntakeData.imageMimeType = file.type;
+            pendingIntakeData.imageBase64 = base64.split(',')[1];
           }
 
           const summary = document.getElementById("intakeSummary");
@@ -4193,7 +4187,7 @@
                 submitBtn.disabled = false;
               }, 1200);
             } else {
-               throw new Error(result.error || "Unknown error occurred.");
+              throw new Error(result.error || "Unknown error occurred.");
             }
 
           } catch (err) {
@@ -4325,6 +4319,32 @@
         intakeForm.style.display = 'none'; // hide the jewelry form
       }
     }
+  </script>
+
+
+
+
+  <script>
+    document.addEventListener('click', function (e) {
+      // 1. Check if the clicked element is an anchor link starting with #
+      const anchor = e.target.closest('a[href^="#"]');
+
+      if (anchor) {
+        const targetId = anchor.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+          e.preventDefault(); // 2. Stop the # from appearing in the URL
+
+          // 3. Manually scroll to the section
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+    }, false);
+
   </script>
 
 </body>
