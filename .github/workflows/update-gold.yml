@@ -1,0 +1,22 @@
+name: Update Gold Price
+on:
+  schedule:
+    - cron: '0 */8 * * *' # Runs every 8 hours
+  workflow_dispatch: # Allows you to run it manually
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Fetch Price
+        run: |
+          curl -H "x-access-token: goldapi-8qy21f19mmnqu086-io" \
+          "https://www.goldapi.io/api/XAU/USD" > gold.json
+      - name: Commit and Push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add gold.json
+          git commit -m "Update gold price" || exit 0
+          git push
