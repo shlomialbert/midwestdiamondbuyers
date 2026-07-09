@@ -1,0 +1,20 @@
+# OS cruft
+.DS_Store
+Thumbs.db
+
+#Editor/IDE
+.vscode/
+.idea/
+*.swp
+
+# Python (used only for local scripts like generate_sitemap.py / split_site.py)
+venv/
+__pycache__/
+*.pyc
+
+# Node (only relevant if you ever add npm tooling)
+node_modules/
+
+# Secrets / local env files (never commit credentials)
+.env
+.env.local

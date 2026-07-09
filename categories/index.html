@@ -4,7 +4,9 @@
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Midwest Diamond Buyers | Luxury Estate Purchasing Chicago</title>
+  <title>Sell Diamonds, Jewelry & Watches | Midwest Diamond Buyers Chicago</title>
+  <meta name="description" content="Start your evaluation for diamonds, fine jewelry, or luxury watches. Same-day review, a private appointment, and instant payment in Chicago." />
+  <link rel="canonical" href="https://midwestdiamondbuyers.com/categories/" />
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap"
     rel="stylesheet" />
@@ -2659,7 +2661,7 @@
     <section class="page active" id="categories-view">
       <div id="category-selection">
         <div class="section-header">
-          <h2 class="section-title" style="color: #0055a2">Asset Categories</h2>
+          <h1 class="section-title" style="color: #0055a2">Asset Categories</h1>
           <p style="color: var(--muted); max-width: 600px; margin: 0 auto 4rem">
             Select your item type to begin a private, secure evaluation with
             our experts.
@@ -2818,8 +2820,8 @@
       <div class="footer-col">
         <h4 class="footer-title">Resources</h4>
         <ul class="footer-links">
-          <li><a href="/blog.html">Blogs</a></li>
-          <li><a href="/faq.html">FAQs</a></li>
+          <li><a href="/blog/">Blogs</a></li>
+          <li><a href="/faq/">FAQs</a></li>
           <li><a href="https://www.google.com/search?q=Midwest+Diamond+Buyers&sca_esv=492d03d456b59a14&rlz=1C1GCEU_enUS&ei=zx5padiiEe2z5NoPzsy66QY&ved=0ahUKEwiYxvmShI6SAxXtGVkFHU6mLm0Q4dUDCBE&uact=5&oq=Midwest+Diamond+Buyers&gs_lp=Egxnd3Mtd2l6LXNlcnAiFk1pZHdlc3QgRGlhbW9uZCBCdXllcnMyDhAuGIAEGMcBGI4FGK8BMgIQJjIIEAAYgAQYogQyCBAAGIAEGKIEMgUQABjvBTIdEC4YgAQYxwEYjgUYrwEYlwUY3AQY3gQY4ATYAQFI5xlQrAlYnhVwAXgBkAEAmAFyoAHSBqoBAzEuN7gBA8gBAPgBAZgCBKAC5ALCAgoQABiwAxjWBBhHwgIGEAAYFhgemAMAiAYBkAYIugYGCAEQARgUkgcDMS4zoAewHrIHAzAuM7gH2wLCBwUyLTMuMcgHGIAIAA&sclient=gws-wiz-serp" target="_blank" rel="noopener noreferrer">Google Reviews</a></li>
           <li><a href="/contact/">Get an Evaluation</a></li>
         </ul>
@@ -2828,9 +2830,9 @@
       <div class="footer-col">
         <h4 class="footer-title">Legal</h4>
         <ul class="footer-links">
-          <li><a href="/privacy.html">Privacy Policy</a></li>
-          <li><a href="/terms.html">Terms & Conditions</a></li>
-          <li><a href="/shipping.html">Shipping</a></li>
+          <li><a href="/privacy/">Privacy Policy</a></li>
+          <li><a href="/terms/">Terms & Conditions</a></li>
+          <li><a href="/shipping/">Shipping</a></li>
         </ul>
       </div>
     </div>
@@ -2890,6 +2892,32 @@
     }
 
     // 3. The Form Generation Logic
+    function contactFieldsBlock() {
+      return `
+        <div class="input-group" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.12);">
+          <label>Full Name</label>
+          <input id="intakeFullName" name="intakeFullName" type="text" autocomplete="name" required>
+        </div>
+        <div class="input-group">
+          <label>Email Address</label>
+          <input id="intakeEmail" name="intakeEmail" type="email" autocomplete="email" required>
+        </div>
+        <div class="input-group">
+          <label>Cell Phone Number</label>
+          <input id="intakePhone" name="intakePhone" type="tel" autocomplete="tel" required>
+        </div>
+        <div class="input-group">
+          <label>Preferred Mode of Contact</label>
+          <select id="intakePreferredContact" name="intakePreferredContact" required>
+            <option value="" selected disabled></option>
+            <option value="text">Text message</option>
+            <option value="phone">Phone call</option>
+            <option value="email">Email</option>
+          </select>
+        </div>
+      `;
+    }
+
     function openIntake(type) {
       document.getElementById("category-selection").style.display = "none";
       document.getElementById("intake-form-container").style.display = "block";
@@ -2899,24 +2927,24 @@
       if (type === "diamond") {
         title.innerText = "Diamond Evaluation";
         questionsDiv.innerHTML = `
-                    <div class="input-group"><label>Shape</label><select><option>Round</option><option>Oval</option><option>Emerald</option><option>Pear</option><option>Cushion</option><option>Radiant</option><option>others</option></select></div>
-                    <div class="input-group"><label>Carat Weight</label><input type="number" step="0.01"></div>
-                    <div class="input-group"><label>Certification</label><select><option>GIA</option><option>EGL</option><option>IGI</option><option>Other</option><option>None</option></select></div>
+                    <div class="input-group"><label>Shape</label><select id="diaShape" data-label="Shape"><option>Round</option><option>Oval</option><option>Emerald</option><option>Pear</option><option>Cushion</option><option>Radiant</option><option>others</option></select></div>
+                    <div class="input-group"><label>Carat Weight</label><input id="diaCarat" data-label="Carat Weight" type="number" step="0.01"></div>
+                    <div class="input-group"><label>Certification</label><select id="diaCert" data-label="Certification"><option>GIA</option><option>EGL</option><option>IGI</option><option>Other</option><option>None</option></select></div>
                     <div class="input-group">
                       <label>Description</label>
-                      <textarea id="diaDesc" placeholder="Any details you want us to know"></textarea>
+                      <textarea id="diaDesc" data-label="Description" placeholder="Any details you want us to know"></textarea>
                     </div>
                     <div class="input-group">
                       <label>Upload Image (Optional)</label>
                       <input type="file" id="itemImage" accept="image/*">
                     </div>
-                `;
+                ` + contactFieldsBlock();
       } else if (type === "watches") {
         title.innerText = "Luxury Watches";
         questionsDiv.innerHTML = `
             <div class="input-group">
               <label>Brand</label>
-              <select id="watchBrand">
+              <select id="watchBrand" data-label="Brand">
                 <option value="" selected disabled></option>
                 <option>Rolex</option>
                 <option>Omega</option>
@@ -2938,7 +2966,7 @@
             </div>
             <div class="input-group">
               <label>Model</label>
-              <select id="watchModel">
+              <select id="watchModel" data-label="Model">
                 <option value="" selected disabled></option>
               </select>
             </div>
@@ -2948,7 +2976,7 @@
             </div>
             <div class="input-group">
               <label>Condition</label>
-              <select id="watchCondition">
+              <select id="watchCondition" data-label="Condition">
                 <option value="" selected disabled></option>
                 <option>New / Like New</option>
                 <option>Excellent</option>
@@ -2960,7 +2988,7 @@
             </div>
             <div class="input-group">
               <label>Box & Papers</label>
-              <select id="watchBnp">
+              <select id="watchBnp" data-label="Box &amp; Papers">
                 <option value="" selected disabled></option>
                 <option>Yes (box + papers)</option>
                 <option>Box only</option>
@@ -2970,13 +2998,13 @@
             </div>
             <div class="input-group">
               <label>Description</label>
-              <textarea id="watchDesc" placeholder="Any details you want us to know..."></textarea>
+              <textarea id="watchDesc" data-label="Description" placeholder="Any details you want us to know..."></textarea>
             </div>
             <div class="input-group">
               <label>Upload Image (Optional)</label>
               <input type="file" id="itemImage" accept="image/*">
             </div>
-          `;
+          ` + contactFieldsBlock();
 
         const brandSelect = document.getElementById("watchBrand");
         const brandOtherWrap = document.getElementById("watchBrandOtherWrap");
@@ -3010,7 +3038,7 @@
         questionsDiv.innerHTML = `
             <div class="input-group">
               <label>Item Type</label>
-              <select id="jewelryType">
+              <select id="jewelryType" data-label="Item Type">
                 <option value="" selected disabled></option>
                 <option>Ring</option>
                 <option>Bracelet</option>
@@ -3022,7 +3050,7 @@
             </div>
             <div class="input-group">
               <label>Brand</label>
-              <select id="jewelryBrand">
+              <select id="jewelryBrand" data-label="Brand">
                 <option value="" selected disabled></option>
                 <option>Cartier</option>
                 <option>Tiffany & Co.</option>
@@ -3037,13 +3065,13 @@
             </div>
             <div class="input-group">
               <label>Description</label>
-              <textarea id="jewelryDesc" placeholder="Any details you want us to know..."></textarea>
+              <textarea id="jewelryDesc" data-label="Description" placeholder="Any details you want us to know..."></textarea>
             </div>
             <div class="input-group">
               <label>Upload Image (Optional)</label>
               <input type="file" id="itemImage" accept="image/*">
             </div>
-          `;
+          ` + contactFieldsBlock();
 
         const brandSelect = document.getElementById("jewelryBrand");
         const otherWrap = document.getElementById("brandOtherWrap");
@@ -3053,8 +3081,7 @@
       }
     }
   </script>
-</body>
-</html>
+  <script src="/assets/form-handler.js"></script>
 </body>
 
 </html>
