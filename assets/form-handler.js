@@ -17,7 +17,7 @@
  * ---------------------------------------------------------
  */
 (function () {
-  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxWy0Kn-YYF1ha5jRCokbufhhHtN2uLITtkXnAGvVlgAuT_Vb_EN0fYSLDjxX8gGnLohA/exec";
+  const APPS_SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
 
   function showConfirmation(message) {
     const overlay = document.createElement("div");
@@ -89,6 +89,24 @@
   }
 
   // ---- Scenario 1: standard "Inquiry Details" contact forms ----
+  function setLoadTimestamps() {
+    document.querySelectorAll('input[name="form_loaded_at"]').forEach(function (el) {
+      el.value = String(Date.now());
+    });
+  }
+
+  // A submission is treated as a bot if the honeypot field has any value,
+  // or if the form was submitted implausibly fast (bots are near-instant;
+  // real people take at least a couple of seconds to read and type).
+  const MIN_HUMAN_SECONDS = 3;
+
+  function looksLikeBot(honeypotValue, loadedAtMs) {
+    if (honeypotValue) return true;
+    if (!loadedAtMs) return false;
+    const elapsedSeconds = (Date.now() - Number(loadedAtMs)) / 1000;
+    return elapsedSeconds < MIN_HUMAN_SECONDS;
+  }
+
   function wireContactForms() {
     document.querySelectorAll("form.gSheetForm").forEach(function (form) {
       form.addEventListener("submit", function (e) {
@@ -96,6 +114,18 @@
         if (!form.reportValidity()) return;
         if (!isConfigured()) {
           showError();
+          return;
+        }
+
+        const hp = form.querySelector('input[name="hp_field"]');
+        const loadedAt = form.querySelector('input[name="form_loaded_at"]');
+        if (looksLikeBot(hp && hp.value, loadedAt && loadedAt.value)) {
+          // Silently "succeed" without actually sending anything —
+          // a real visitor never hits this path.
+          form.reset();
+          showConfirmation(
+            "We've received your details and will reach out shortly to schedule your private evaluation."
+          );
           return;
         }
 
@@ -155,6 +185,15 @@
         return;
       }
 
+      const intakeHp = document.getElementById("intakeHpField");
+      if (looksLikeBot(intakeHp && intakeHp.value, window.__intakeOpenedAt)) {
+        form.reset();
+        showConfirmation(
+          "We've received your item details and will reach out shortly to schedule your private evaluation."
+        );
+        return;
+      }
+
       const titleEl = document.getElementById("form-title");
       const intakeTitle = titleEl ? titleEl.textContent.trim() : "Evaluation";
 
@@ -194,6 +233,8 @@
 
       const buildPayloadAndSend = function (imageData) {
         const payload = {
+          hp_field: (intakeHp && intakeHp.value) || "",
+          form_loaded_at: window.__intakeOpenedAt || "",
           contact: contact,
           intake: Object.assign(
             { intakeTitle: intakeTitle, fields: fields },
@@ -246,6 +287,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    setLoadTimestamps();
     wireContactForms();
     wireDynamicIntakeForm();
   });

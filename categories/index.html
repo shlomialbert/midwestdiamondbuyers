@@ -2758,6 +2758,11 @@
             Inquiry Details
           </h3>
           <form class="gSheetForm" id="contactForm">
+            <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+              <label>Leave this field blank</label>
+              <input type="text" name="hp_field" id="hp_field" tabindex="-1" autocomplete="off">
+            </div>
+            <input type="hidden" name="form_loaded_at" id="form_loaded_at">
             <input name="form_type" type="hidden" value="contact_us" />
             <div class="input-group">
               <label for="fullName">Full Name</label>
@@ -2894,6 +2899,10 @@
     // 3. The Form Generation Logic
     function contactFieldsBlock() {
       return `
+        <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+          <label>Leave this field blank</label>
+          <input type="text" name="intake_hp_field" id="intakeHpField" tabindex="-1" autocomplete="off">
+        </div>
         <div class="input-group" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.12);">
           <label>Full Name</label>
           <input id="intakeFullName" name="intakeFullName" type="text" autocomplete="name" required>
@@ -2919,6 +2928,7 @@
     }
 
     function openIntake(type) {
+      window.__intakeOpenedAt = Date.now();
       document.getElementById("category-selection").style.display = "none";
       document.getElementById("intake-form-container").style.display = "block";
       const questionsDiv = document.getElementById("form-questions");
