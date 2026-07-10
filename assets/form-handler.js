@@ -17,7 +17,7 @@
  * ---------------------------------------------------------
  */
 (function () {
-  const APPS_SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxy5p0VKj70PK49b26piaTAi639ttG39KklapDBIljITKtjdxJqyI-CX3UIa7LZVCMGFA/exec";
 
   function showConfirmation(message) {
     const overlay = document.createElement("div");
