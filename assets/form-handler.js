@@ -17,7 +17,7 @@
  * ---------------------------------------------------------
  */
 (function () {
-  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxy5p0VKj70PK49b26piaTAi639ttG39KklapDBIljITKtjdxJqyI-CX3UIa7LZVCMGFA/exec";
+  const APPS_SCRIPT_URL = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
 
   function showConfirmation(message) {
     const overlay = document.createElement("div");
@@ -148,10 +148,12 @@
                 "We've received your details and will reach out shortly to schedule your private evaluation."
               );
             } else {
+              console.error("form-handler.js: contact form backend returned", json);
               showError();
             }
           })
-          .catch(function () {
+          .catch(function (err) {
+            console.error("form-handler.js: contact form submission failed", err);
             setSubmitting(form, false);
             showError();
           });
@@ -258,10 +260,12 @@
                 "We've received your item details and will reach out shortly to schedule your private evaluation."
               );
             } else {
+              console.error("form-handler.js: intake form backend returned", json);
               showError();
             }
           })
-          .catch(function () {
+          .catch(function (err) {
+            console.error("form-handler.js: intake form submission failed", err);
             setSubmitting(form, false);
             showError();
           });
